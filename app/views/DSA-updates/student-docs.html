@@ -51,26 +51,22 @@ endblock %}
 </div>
 
 
-<table class="nhsuk-table sortableAlign">
-    <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-full">
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <table class="nhsuk-table sortableAlign">
             <thead class="nhsuk-table__head" role="rowgroup">
                 <tr role="row">
                     <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
                         Evidence title
-
                     </th>
-
-
                     <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
                         Evidence type
                     </th>
-
                     <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
-                        <a href="?sort=empId&direction={% if sort == 'idNum' and direction == 'asc' %}desc{% else %}asc{% endif %}"
+                        <a href="?sort=status&direction={% if sort == 'status' and direction == 'asc' %}desc{% else %}asc{% endif %}"
                             class="sortableLink">
                             Status
-                            {% if sort == "empId" %}
+                            {% if sort == "status" %}
                             {% if direction == "asc" %}
                             <span aria-hidden="true" class="sortable">
                                 <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
@@ -104,10 +100,10 @@ endblock %}
                         Document type
                     </th>
                     <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
-                        <a href="?sort=end&direction={% if sort == 'end' and direction == 'asc' %}desc{% else %}asc{% endif %}"
+                        <a href="?sort=dateUploaded&direction={% if sort == 'dateUploaded' and direction == 'asc' %}desc{% else %}asc{% endif %}"
                             class="sortableLink">
                             Date added
-                            {% if sort == "end" %}
+                            {% if sort == "dateUploaded" %}
                             {% if direction == "asc" %}
                             <span aria-hidden="true" class="sortable">
                                 <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
@@ -143,140 +139,37 @@ endblock %}
                 </tr>
             </thead>
             <tbody class="nhsuk-table__body">
-
-
-
-
-                <tr class="nhsuk-table__row" role="row">
-                <tr role="row" class="nhsuk-table__row">
-                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
-                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
-                    <td class="nhsuk-table__cell">
-                        <strong class="nhsuk-tag nhsuk-tag--blue">
-                            To do
-                        </strong>
-                    </td>
-                    <td role="cell" class="nhsuk-table__cell">Public</td>
-                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
-                    <td role="cell" class="nhsuk-table__cell">
-                        <a id="document2" href="/internal/application/view/document?documentId=503"
-                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
-                                agreement File 2(Opens in a new tab)</span></a>
-
-                    </td>
-                </tr>
-
-                </tr>
-                <tr class="nhsuk-table__row errorHighlight" id="shError" role="row">
-                <tr role="row" class="nhsuk-table__row">
-                    <td role="cell" class="nhsuk-table__cell">Student loan letter</td>
-                    <td role="cell" class="nhsuk-table__cell">Status Assessment</td>
-                    <td class="nhsuk-table__cell">
-                        <strong class="nhsuk-tag nhsuk-tag--blue">
-                            To do
-                        </strong>
-                    </td>
-                    <td role="cell" class="nhsuk-table__cell">Public</td>
-                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:17</td>
-                    <td role="cell" class="nhsuk-table__cell">
-                        <a id="document1" href="/internal/application/view/document?documentId=502"
-                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Student
-                                loan letter File 1(Opens in a new tab)</span></a>
-
-                    </td>
-                </tr>
-
-                </tr>
-                <tr class="nhsuk-table__row errorHighlight" role="row">
-                <tr role="row" class="nhsuk-table__row">
-                    <td role="cell" class="nhsuk-table__cell">Full student finance letter</td>
-                    <td role="cell" class="nhsuk-table__cell">Eligibility</td>
-                    <td class="nhsuk-table__cell">
-                        <strong class="nhsuk-tag nhsuk-tag--blue">
-                            To do
-                        </strong>
-                    </td>
-                    <td role="cell" class="nhsuk-table__cell">Public</td>
-                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:15</td>
-                    <td role="cell" class="nhsuk-table__cell">
-                        <a id="document0" href="/internal/application/view/document?documentId=501"
-                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Full
-                                student finance letter File 0(Opens in a new tab)</span></a>
-
-                    </td>
-                </tr>
-                </tr>
-                <tr class="nhsuk-table__row" role="row">
-
-                <tr role="row" class="nhsuk-table__row">
-                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
-                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
-                    <td class="nhsuk-table__cell">
-                        <strong class="nhsuk-tag nhsuk-tag--blue">
-                            To do
-                        </strong>
-                    </td>
-                    <td role="cell" class="nhsuk-table__cell">Public</td>
-                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
-                    <td role="cell" class="nhsuk-table__cell">
-                        <a id="document2" href="/internal/application/view/document?documentId=503"
-                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
-                                agreement File 2(Opens in a new tab)</span></a>
-
-                    </td>
-                </tr>
-
-                </tr>
-                <tr class="nhsuk-table__row" role="row">
-
-                <tr role="row" class="nhsuk-table__row">
-                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
-                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
-                    <td class="nhsuk-table__cell">
-                        <strong class="nhsuk-tag nhsuk-tag--green">
-                            Complete
-                        </strong>
-                    </td>
-                    <td role="cell" class="nhsuk-table__cell">Public</td>
-                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
-                    <td role="cell" class="nhsuk-table__cell">
-                        <a id="document2" href="/internal/application/view/document?documentId=503"
-                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
-                                agreement File 2(Opens in a new tab)</span></a>
-
-                    </td>
-                </tr>
-
-                </tr>
-
-
-            </tbody>
-
-            <tbody class="nhsuk-table__body">
                 {% for row in tableData | sortBy(sort, direction) %}
                 <tr class="nhsuk-table__row" role="row">
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.evidence-title }}</td>
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.evidence-type }}</td>
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.status }}</td>
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.document-type}}</td>
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.date-uploaded }}</td>
-                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.actions }}</td>
-
+                    <td class="nhsuk-table__cell" role="cell">{{ row.evidenceTitle }}</td>
+                    <td class="nhsuk-table__cell" role="cell">{{ row.evidenceType }}</td>
+                    <td class="nhsuk-table__cell" role="cell">
+                        {% if row.status === 'todo' %}
+                        <strong class="nhsuk-tag nhsuk-tag--blue">To do</strong>
+                        {% endif %}
+                        {% if row.status === 'complete' %}
+                        <strong class="nhsuk-tag nhsuk-tag--green">Complete</strong>
+                        {% endif %}
+                    </td>
+                    <td class="nhsuk-table__cell" role="cell">{{ row.documentType}}</td>
+                    <td class="nhsuk-table__cell" role="cell">{{ row.dateUploaded }}</td>
+                    <td class="nhsuk-table__cell" role="cell">
+                        <a id="{{ row.action.id }}"
+                            href="/internal/application/view/document?documentId={{ row.action.documentId }}"
+                            target="_blank">
+                            <strong>{{ row.action.label }}</strong>
+                            <span class="nhsuk-u-visually-hidden">
+                                {{ row.action.hiddenText }} (Opens in a new tab)
+                            </span>
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
-</table>
-
-
-
-
-
-
-</div>
+        </table>
+    </div>
 </div>
 
-</div>
-</div>
 
 
 <div class="dialog" id="dialog-signOut" aria-hidden="true">
