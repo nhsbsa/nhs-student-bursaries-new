@@ -34,7 +34,21 @@ module.exports = function (env) {
     documentation.
 
   ------------------------------------------------------------------ */
+ // filters.js
+ 
+ // SORT BY FIELD FILTER
+ filters.sortBy = function (arr, field, direction = 'asc') {
+  if (!Array.isArray(arr)) return arr
+  
+  return arr.slice().sort((a, b) => {
+    if (a[field] < b[field]) return direction === 'asc' ? -1 : 1
+    if (a[field] > b[field]) return direction === 'asc' ? 1 : -1
+    return 0
+  })
+}
 
+  
+  
   /* keep the following line to return your filters to the app  */
   return filters
 }

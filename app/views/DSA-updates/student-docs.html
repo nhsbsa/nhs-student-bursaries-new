@@ -1,0 +1,326 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-dsa-internal.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %} SRN000020301 - Liam Bloggs {%
+endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %} {% endblock %}
+<!-- Breadcrumb -->
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+
+
+
+
+        <div>
+            <h1 class="nhsuk-app-heading">
+                <span class="nhsuk-caption-l" id="studentRef">BRN0000147</span>Student documents
+            </h1>
+        </div>
+</div>
+<div class="nhsuk-grid-column-one-third">
+    <div class="lockStudent">
+        <form action="/internal/lockStudent/update/1c7a7100-99d3-44b3-ae72-49c36ee60d0f" method="POST"><input
+                type="hidden" name="_csrf" value="ec1e778b-a58e-494b-84af-8d602bb60f08">
+            <input type="hidden" name="id" id="id" value="147">
+
+
+            <button value="Lock" class="nhsuk-button nhsuk-button--secondary right-floater" type="submit" name="lock"
+                id="lockButton">
+                <span class="heading-small">Lock record</span>
+            </button>
+
+        </form>
+    </div>
+</div>
+
+
+<table class="nhsuk-table sortableAlign">
+    <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+            <thead class="nhsuk-table__head" role="rowgroup">
+                <tr role="row">
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        Evidence title
+
+                    </th>
+
+
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        Evidence type
+                    </th>
+
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        <a href="?sort=empId&direction={% if sort == 'idNum' and direction == 'asc' %}desc{% else %}asc{% endif %}"
+                            class="sortableLink">
+                            Status
+                            {% if sort == "empId" %}
+                            {% if direction == "asc" %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5625 15.5L11 6.63125L15.4375 15.5H6.5625Z" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% elseif direction == "desc" %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.4375 7L11 15.8687L6.5625 7L15.4375 7Z" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% endif %}
+                            {% else %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.1875 9.5L10.9609 3.95703L13.7344 9.5H8.1875Z" fill="currentColor">
+                                    </path>
+                                    <path d="M13.7344 12.0781L10.9609 17.6211L8.1875 12.0781H13.7344Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% endif %}
+                        </a>
+                    </th>
+
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        Document type
+                    </th>
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        <a href="?sort=end&direction={% if sort == 'end' and direction == 'asc' %}desc{% else %}asc{% endif %}"
+                            class="sortableLink">
+                            Date added
+                            {% if sort == "end" %}
+                            {% if direction == "asc" %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5625 15.5L11 6.63125L15.4375 15.5H6.5625Z" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% elseif direction == "desc" %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.4375 7L11 15.8687L6.5625 7L15.4375 7Z" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% endif %}
+                            {% else %}
+                            <span aria-hidden="true" class="sortable">
+                                <svg width="22" height="22" focusable="false" aria-hidden="true" role="img"
+                                    viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.1875 9.5L10.9609 3.95703L13.7344 9.5H8.1875Z" fill="currentColor">
+                                    </path>
+                                    <path d="M13.7344 12.0781L10.9609 17.6211L8.1875 12.0781H13.7344Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            {% endif %}
+                        </a>
+                    </th>
+                    <th scope="col" class="nhsuk-table__header nhsuk-u-font-size-19" role="columnheader">
+                        Actions
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody class="nhsuk-table__body">
+
+
+
+
+                <tr class="nhsuk-table__row" role="row">
+                <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
+                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
+                    <td class="nhsuk-table__cell">
+                        <strong class="nhsuk-tag nhsuk-tag--blue">
+                            To do
+                        </strong>
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">Public</td>
+                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
+                    <td role="cell" class="nhsuk-table__cell">
+                        <a id="document2" href="/internal/application/view/document?documentId=503"
+                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
+                                agreement File 2(Opens in a new tab)</span></a>
+
+                    </td>
+                </tr>
+
+                </tr>
+                <tr class="nhsuk-table__row errorHighlight" id="shError" role="row">
+                <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">Student loan letter</td>
+                    <td role="cell" class="nhsuk-table__cell">Status Assessment</td>
+                    <td class="nhsuk-table__cell">
+                        <strong class="nhsuk-tag nhsuk-tag--blue">
+                            To do
+                        </strong>
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">Public</td>
+                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:17</td>
+                    <td role="cell" class="nhsuk-table__cell">
+                        <a id="document1" href="/internal/application/view/document?documentId=502"
+                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Student
+                                loan letter File 1(Opens in a new tab)</span></a>
+
+                    </td>
+                </tr>
+
+                </tr>
+                <tr class="nhsuk-table__row errorHighlight" role="row">
+                <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">Full student finance letter</td>
+                    <td role="cell" class="nhsuk-table__cell">Eligibility</td>
+                    <td class="nhsuk-table__cell">
+                        <strong class="nhsuk-tag nhsuk-tag--blue">
+                            To do
+                        </strong>
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">Public</td>
+                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:15</td>
+                    <td role="cell" class="nhsuk-table__cell">
+                        <a id="document0" href="/internal/application/view/document?documentId=501"
+                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Full
+                                student finance letter File 0(Opens in a new tab)</span></a>
+
+                    </td>
+                </tr>
+                </tr>
+                <tr class="nhsuk-table__row" role="row">
+
+                <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
+                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
+                    <td class="nhsuk-table__cell">
+                        <strong class="nhsuk-tag nhsuk-tag--blue">
+                            To do
+                        </strong>
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">Public</td>
+                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
+                    <td role="cell" class="nhsuk-table__cell">
+                        <a id="document2" href="/internal/application/view/document?documentId=503"
+                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
+                                agreement File 2(Opens in a new tab)</span></a>
+
+                    </td>
+                </tr>
+
+                </tr>
+                <tr class="nhsuk-table__row" role="row">
+
+                <tr role="row" class="nhsuk-table__row">
+                    <td role="cell" class="nhsuk-table__cell">Rent agreement</td>
+                    <td role="cell" class="nhsuk-table__cell">Student Expenses</td>
+                    <td class="nhsuk-table__cell">
+                        <strong class="nhsuk-tag nhsuk-tag--green">
+                            Complete
+                        </strong>
+                    </td>
+                    <td role="cell" class="nhsuk-table__cell">Public</td>
+                    <td role="cell" class="nhsuk-table__cell">02-10-2025 11:19</td>
+                    <td role="cell" class="nhsuk-table__cell">
+                        <a id="document2" href="/internal/application/view/document?documentId=503"
+                            target="_blank"><strong>View</strong><span class="nhsuk-u-visually-hidden"> Rent
+                                agreement File 2(Opens in a new tab)</span></a>
+
+                    </td>
+                </tr>
+
+                </tr>
+
+
+            </tbody>
+
+            <tbody class="nhsuk-table__body">
+                {% for row in tableData | sortBy(sort, direction) %}
+                <tr class="nhsuk-table__row" role="row">
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.evidence-title }}</td>
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.evidence-type }}</td>
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.status }}</td>
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.document-type}}</td>
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.date-uploaded }}</td>
+                    <td class="nhsuk-table__cell nhsuk-u-font-size-14" role="cell">{{ row.actions }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+</table>
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="dialog" id="dialog-signOut" aria-hidden="true">
+    <dialog id="signout-content-1" class="dialog-holder" role="alertdialog">
+        <div class="dialog-content" id="signoutContainer" role="document" tabindex="0">
+            <h1 class="dialog-heading">Sign out</h1>
+            <form class="form">
+                <p id="signout-content-1">This will end your session. Are you sure you want to sign out?</p>
+
+                <div class="dialog-actions">
+                    <a class="nhsuk-button nhsuk-u-margin-right-4" href="/internal/logout" role="button"
+                        data-module="nhsuk-button">Yes</a>
+                    <a class="nhsuk-button nhsuk-button--secondary" href="#" role="button" data-module="nhsuk-button"
+                        onclick="cancel()">No</a>
+                </div>
+
+                <a class="dialog-close" aria-label="close" type="button" role="button">
+                    <span class="icon icon-close">x</span>
+                </a>
+            </form>
+        </div>
+    </dialog>
+</div>
+<script>
+    function cancel() {
+        document.getElementById("signoutContainer").tabIndex = 0;
+        document.getElementById("dialog-signOut").ariaHidden = true;
+    }
+</script>
+
+</main>
+
+
+
+
+
+
+<script>
+    function cancel() {
+        document.getElementById("signoutContainer").tabIndex = 0;
+        document.getElementById("dialog-signOut").ariaHidden = true;
+    }
+</script>
+
+</main>
+</div>
+{% endblock %}

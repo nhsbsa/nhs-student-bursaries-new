@@ -1,0 +1,166 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-dsa-internal.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %} SRN000020301 - Liam Bloggs {%
+endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %} {% endblock %}
+<!-- Breadcrumb -->
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-width-container">
+			<main class="nhsuk-main-wrapper" id="maincontent" role="main">
+				<div class="nhsuk-grid-row">
+					<div class="nhsuk-grid-column-full">
+						<form action="/internal/search" method="POST" novalidate=""><input type="hidden" name="_csrf" value="d9b73a10-eed9-4742-b5cc-2d281a507efa">
+							
+							
+							
+
+							
+								<h1 class="nhsuk-app-heading">Student search</h1>
+							
+
+							<div class="nhsuk-grid-row">
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group">
+										<label for="studentRefNo" class="nhsuk-label">Student reference</label>
+										
+										<input id="studentRefNo" class="nhsuk-input" type="text" name="studentReferenceNo" value="">
+									</div>
+								</div>
+								
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group">
+										<label for="uniRefNo" class="nhsuk-label">Student ID</label>
+										
+										<input id="uniRefNo" class="nhsuk-input" type="text" name="universityReferenceNo" value="">
+									</div>
+								</div>
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group">
+										<label for="sfeRefNo" class="nhsuk-label">Student SFE number</label>
+										
+										<input id="sfeRefNo" class="nhsuk-input" type="text" name="sfeReferenceNo" value="">
+									</div>
+								</div>
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group" id="email-group">
+										<label for="mail" class="nhsuk-label">Email address</label>
+										
+										<input id="mail" class="nhsuk-input" type="text" spellcheck="false" name="email" value="">
+									</div>
+								</div>
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group" id="postcode-group">
+										<label for="postcode" class="nhsuk-label">Postcode</label>
+										
+										
+						
+										<input id="postcode" class="nhsuk-input" type="text" name="postcode" value="">
+									</div>
+								</div>
+							</div>
+							<div class="nhsuk-grid-row">
+								<div class="nhsuk-grid-column-one-third">
+									<div class="form-group" id="firstname-group">
+										<label for="firstname" class="nhsuk-label">First name</label>
+										
+										<input id="firstname" class="nhsuk-input" type="text" name="firstName" value="">
+									</div>
+								</div>
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group" id="lastname-group">
+										<label for="lastname" class="nhsuk-label">Surname</label>
+										
+										<input id="lastname" class="nhsuk-input" type="text" name="lastName" value="">
+									</div>
+								</div>
+								<div class="nhsuk-grid-column-one-third">
+									<div class="nhsuk-form-group" id="dob-group">
+										<fieldset id="dob" role="group" class="nhsuk-fieldset">
+											<legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Date of birth </legend>
+											<div class="nhsuk-date-input">
+												
+
+												<div class="nhsuk-date-input__item">
+													<label id="dob-day-label" class="nhsuk-label" for="dob-day">Day</label>
+													<input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day" type="text" placeholder="dd" name="dob.day" value="">
+												</div>
+
+												<div class="nhsuk-date-input__item">
+													<label id="dob-month-label" class="nhsuk-label" for="dob-month">Month</label>
+													<input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month" type="text" placeholder="mm" name="dob.month" value="">
+												</div>
+												
+												<div class="nhsuk-date-input__item">
+													<label id="dob-year-label" class="nhsuk-label" for="dob-year">Year</label>
+													<input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year" type="text" placeholder="yyyy" name="dob.year" value="">
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+
+							<div class="nhsuk-grid-row">
+								<div class="nhsuk-grid-column-full">
+									<div class="nhsuk-form-group">
+										<a href="student-landing-initial-results" class="nhsuk-button" role="button"
+        >Search</a>
+										<button class="nhsuk-button nhsuk-button--secondary" type="submit" value="Locked" name="action" id="lockedButton" role="button">Locked by me</button>
+									</div>
+									<div class="nhsuk-form-group mb-0 js-disabled">
+										<p><a href="#" id="clearButton" onclick="window.location.href='/internal/search?showPreviousResults=false'">Clear search</a></p>
+									</div>
+								</div>
+							</div>
+						</form>
+
+						
+					</div>
+				</div>
+				
+        <div class="dialog" id="dialog-signOut" aria-hidden="true">
+            <dialog id="signout-content-1" class="dialog-holder" role="alertdialog">
+                <div class="dialog-content" id="signoutContainer" role="document" tabindex="0">
+                    <h1 class="dialog-heading">Sign out</h1>
+                    <form class="form">
+                        <p id="signout-content-1">This will end your session. Are you sure you want to sign out?</p>
+
+                        <div class="dialog-actions">
+                            <a class="nhsuk-button nhsuk-u-margin-right-4" href="/internal/logout" role="button" data-module="nhsuk-button">Yes</a>
+                            <a class="nhsuk-button nhsuk-button--secondary" href="student-landing-initial-results" role="button" data-module="nhsuk-button" onclick="cancel()">No</a>
+                        </div>
+
+                        <a class="dialog-close" aria-label="close" type="button" role="button">
+                            <span class="icon icon-close">x</span>
+                        </a>
+                    </form>
+                </div>
+            </dialog>
+        </div>
+        <script>
+            function cancel() {
+                document.getElementById("signoutContainer").tabIndex = 0;
+                document.getElementById("dialog-signOut").ariaHidden = true;
+            }
+        </script>
+    
+			</main>
+		</div>
+{% endblock %}
