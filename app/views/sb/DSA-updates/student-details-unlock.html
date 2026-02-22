@@ -1,0 +1,1226 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-dsa-internal.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+    
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %} SRN000020301 - Liam Bloggs {%
+endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %} {% endblock %}
+<!-- Breadcrumb -->
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent" role="main">
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-two-thirds">
+                <div>
+                    <h1 class="nhsuk-heading-xl">
+								<span class="nhsuk-caption-l" id="studentRef">
+									<span>BRN0000147</span>
+									<span class="nhsuk-u-visually-hidden"> - </span>
+								</span>
+                        Student details
+                    </h1>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <div class="lockStudent">
+    <form action="/internal/lockStudent/update/1c7a7100-99d3-44b3-ae72-49c36ee60d0f" method="POST"><input type="hidden" name="_csrf" value="75cf3ab3-e38f-4011-b780-421152302aad">
+        <input type="hidden" name="id" id="id" value="147">
+        
+             <a class="nhsuk-button nhsuk-button--secondary right-floater" href="student-details">Unlock record</a>
+         
+        
+    </form>
+</div>
+            </div>
+        </div>
+								<div class="nhsuk-grid-column-one-third">
+                <h2 class="nhsuk-heading-xs mb-0">Name</h2>
+                <p id="studentName" class="wordbreak mb-0">Joe Hutchinson</p>
+
+                <h2 class="nhsuk-heading-xs mb-0">Date of birth</h2>
+                <p id="studentDOB" class="mb-0">06/07/2008</p>
+
+                <h2 class="nhsuk-heading-xs mb-0">SFE Number</h2>
+                <p id="sfeReferenceNo" class="wordbreak">111111</p>
+            </div>
+							<div class="nhsuk-grid-column-one-third">
+                <h2 class="nhsuk-heading-xs mb-0">Address</h2>
+                <address>
+                    <span id="studentAddress1" class="wordbreak">3</span><br>
+                    <span></span><br>
+                    
+                        <span class="wordbreak">Zoo Lane</span>
+                        <br>
+                    
+                    
+                    <span>Alnwick</span><br>
+                    <span id="studentPostcode" class="wordbreak">NE4 6EA</span>
+                </address>
+            </div>
+			<div class="nhsuk-grid-column-one-third">
+                
+                    <h2 class="nhsuk-heading-xs mb-0">Phone</h2>
+                    <p id="studentPhone" class="mb-0">07700000000</p>
+                
+
+                
+                    <h2 class="nhsuk-heading-xs mb-0">Student ID</h2>
+                    <p id="universityReferenceNo" class="mb-0">111111</p>
+                
+
+                <h2 class="nhsuk-heading-xs mb-0">Email</h2>
+                <p id="studentEmail" class="wordbreak">rowil@nhsbsa.nhs.uk</p>
+            </div>
+<div class="nhsuk-grid-row">
+
+             <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-full">
+
+                
+                    <div class="nhsuk-action-link">
+    <a class="nhsuk-action-link__link" href="/internal/studentDetails/personalDetails?studentId=89" id="updateDetails">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text">Edit student details</span>
+    </a>
+</div>
+                
+
+            </div>
+
+
+            <div class="nhsuk-grid-column-full">
+                <details class="nhsuk-details" id="idBankDetails">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">View bank details</span>
+                    </summary>
+
+                    <div class="nhsuk-details__text">
+                        <h2 class="nhsuk-heading-m">Bank details</h2>
+
+                        <h3 class="nhsuk-heading-xs mb-0">Account number</h3>
+                        <p id="accountNumber">00000003</p>
+
+                        <h3 class="nhsuk-heading-xs mb-0">Sort code</h3>
+                        <p id="sortcode">111545</p>
+
+                        <h3 class="nhsuk-heading-xs mb-0">Account holder</h3>
+                        <p id="accountholder">Joe Bloggs</p>
+
+                        <h3 class="nhsuk-heading-xs mb-0">Building society number</h3>
+                        <p>
+                            <span id="buildingSocietyNo"></span>
+                            <span>N/A</span>
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="nhsuk-grid-row">
+
+            <div class="nhsuk-grid-column-full">
+                <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+                    <div class="tabs-nav">
+                        <ul class="nhsuk-tabs__list" role="tablist">
+                            <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected" role="presentation"><a href="#tab-1" class="nhsuk-tabs__tab" id="tab_tab-1" role="tab" aria-controls="tab-1" aria-selected="true" tabindex="0">Activities</a>
+                            </li>
+                            <li class="nhsuk-tabs__list-item" role="presentation"><a href="#tab-2" class="nhsuk-tabs__tab" id="tab_tab-2" role="tab" aria-controls="tab-2" aria-selected="false" tabindex="-1">Notes</a></li>
+                            <li class="nhsuk-tabs__list-item" role="presentation"><a href="#tab-3" class="nhsuk-tabs__tab" id="tab_tab-3" role="tab" aria-controls="tab-3" aria-selected="false" tabindex="-1">Course
+                                details</a></li>
+                            <li class="nhsuk-tabs__list-item" role="presentation"><a href="#tab-4" class="nhsuk-tabs__tab" id="tab_tab-4" role="tab" aria-controls="tab-4" aria-selected="false" tabindex="-1">Payments</a>
+                            </li>
+                            <li class="nhsuk-tabs__list-item" role="presentation"><a href="#tab-5" class="nhsuk-tabs__tab" id="tab_tab-5" role="tab" aria-controls="tab-5" aria-selected="false" tabindex="-1">Actions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nhsuk-tabs__panel" id="tab-1" role="tabpanel" aria-labelledby="tab_tab-1">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-third">
+                                <h2 class="nhsuk-heading-m">Activities</h2>
+                                
+                                    <!-- Action link -->
+                                    <div class="nhsuk-action-link">
+    <a class="nhsuk-action-link__link" href="/internal/studentDetails/viewDocuments?studentId=89" id="viewDocuments">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text">View documents</span>
+    </a>
+</div>
+                                
+                            </div>
+                            <div class="nhsuk-grid-column-two-thirds">
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity0">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">61 - Childcare application - SB (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[0]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 17:27:40</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 17:27:40</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Joe test</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">testenvironment277+333@gmail.com</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="assessActivity0" href="/internal/childcare/studentview/summary?activityId=61" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity1">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">60 - Means Tested Bursary Application (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[1]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 17:26:22</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">06/10/2025 09:59:28</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    <a id="assessActivity1" href="/internal/application/studentview/dashboard?applicationId=31" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="closeActivity1" href="/internal/activity/studentview/close?activityId=60" class="nhsuk-button nhsuk-button--secondary" role="button" data-module="nhsuk-button">Close</a>
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity2">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">57 - Means Tested Bursary Application (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[2]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 16:36:58</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">06/10/2025 09:59:43</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    <a id="assessActivity2" href="/internal/application/studentview/dashboard?applicationId=30" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="closeActivity2" href="/internal/activity/studentview/close?activityId=57" class="nhsuk-button nhsuk-button--secondary" role="button" data-module="nhsuk-button">Close</a>
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity3">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">58 - DSA needs assessment (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[3]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 17:07:58</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">17/10/2025 15:10:45</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="assessActivity3" href="/DSA-updates/DSA-needs-assessment" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                    
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity4">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">175 - Childcare application - SB (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[4]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 08:35:48</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 08:35:48</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Joe test</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">testenvironment277+333@gmail.com</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="assessActivity4" href="/internal/childcare/studentview/summary?activityId=175" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity5">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">176 - Change to the details of the children who are dependent on me (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[5]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 09:41:28</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 09:41:28</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Joe test</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">testenvironment277+333@gmail.com</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    
+                                                    <a id="viewActivity5" href="/internal/changeCircumstance/studentview/details?activityId=176"><strong>View</strong></a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity6">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">177 - Means Tested Bursary Application (Active)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[6]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 09:52:58</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">03/11/2025 09:52:58</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Joe test</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">testenvironment277+333@gmail.com</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    
+                                                    <a id="assessActivity6" href="/internal/application/studentview/dashboard?applicationId=140" class="nhsuk-button nhsuk-u-margin-right-5" role="button" data-module="nhsuk-button">Assess</a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <a id="closeActivity6" href="/internal/activity/studentview/close?activityId=177" class="nhsuk-button nhsuk-button--secondary" role="button" data-module="nhsuk-button">Close</a>
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity7">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">89 - Change address (Complete)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[7]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">19/05/2025 16:43:27</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">19/05/2025 16:45:14</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    <a id="activateActivity7" href="/internal/activity/studentview/activate?activityId=89"><strong>Activate</strong></a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity8">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">90 - Change address (Complete)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[8]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">20/05/2025 14:13:59</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">20/05/2025 14:27:44</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    <a id="activateActivity8" href="/internal/activity/studentview/activate?activityId=90"><strong>Activate</strong></a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                                    <details class="nhsuk-details nhsuk-expander" id="activity9">
+
+                                        <summary class="nhsuk-details__summary">
+                                            <span class="nhsuk-details__summary-text">59 - DSA needs assessment (Complete)</span>
+                                        </summary>
+                                        <div class="nhsuk-details__text" id="details-content-activities[9]">
+                                            <dl class="nhsuk-summary-list">
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                                    <dd class="nhsuk-summary-list__value">07/04/2025 17:10:13</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                                    <dd class="nhsuk-summary-list__value">17/10/2025 14:55:19</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                                    <dd class="nhsuk-summary-list__value">Michael Lee</dd>
+                                                </div>
+                                                <div class="nhsuk-summary-list__row">
+                                                    <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                                    <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
+                                                </div>
+                                            </dl>
+                                            <p>
+                                                
+                                                    
+                                                    <a id="activateActivity9" href="/internal/activity/studentview/activate?activityId=59"><strong>Activate</strong></a>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                
+                                            </p>
+                                        </div>
+                                    </details>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-2" role="tabpanel" aria-labelledby="tab_tab-2">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-quarter">
+                                <h2 class="nhsuk-heading-m">Notes</h2>
+                                <a class="nhsuk-button" id="addNote" href="/internal/notes/addnote?studentId=89" role="button">Add note<span class="nhsuk-u-visually-hidden"> to student account</span></a>
+                            </div>
+
+                            <div class="nhsuk-grid-column-three-quarters">
+                                <label for="filterText" class="nhsuk-label">Filter notes</label>
+                                <input class="nhsuk-input nhsuk-u-width-full" type="text" name="search-box" value="" id="filterText" onkeyup="filterTable('filterText', 'notesTable')">
+                                <span class="inline-search-button">
+											<span class="nhsuk-u-visually-hidden">Search</span>
+										</span>
+
+                                <table id="notesTable">
+                                    <caption class="nhsuk-u-visually-hidden">User notes table</caption>
+                                    <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th class="nhsuk-u-visually-hidden" scope="col" role="columnheader">Notes</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance rejected sent on 17/10/2025 14:55:19</h3>
+                                            
+                                            
+                                            <p>hello joe</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Email Sent on 18/09/2025 10:53:52</h3>
+                                            
+                                            
+                                            <p>HALLO</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Email Sent on 18/09/2025 10:52:22</h3>
+                                            
+                                            
+                                            <p>HALLO
+<br></p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Matched student - Attendance confirmed on 18/09/2025 10:48:53</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Change of Circumstances on 18/09/2025 10:48:35</h3>
+                                            <p>Linked activity 59 - DSA needs assessment</p>
+                                            
+                                            <p>lll</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                                <ul class="nhsuk-list">
+                                                    <li>
+                                                        <a id="editNote4" href="/internal/notes/edit?studentId=89&amp;noteId=206" class="nhsuk-u-margin-right-5">Edit<span class="nhsuk-u-visually-hidden"> note</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="deleteNote4" href="#" data-toggle="modal" data-target="dialog-deleteNote206">Delete<span class="nhsuk-u-visually-hidden"> note</span></a>
+                                                    </li>
+                                                </ul>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Email Sent on 30/05/2025 10:41:57</h3>
+                                            
+                                            
+                                            <p>Hello there</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Call referrals on 28/05/2025 14:51:51</h3>
+                                            
+                                            
+                                            <p>Hello</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                                <ul class="nhsuk-list">
+                                                    <li>
+                                                        <a id="editNote6" href="/internal/notes/edit?studentId=89&amp;noteId=167" class="nhsuk-u-margin-right-5">Edit<span class="nhsuk-u-visually-hidden"> note</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="deleteNote6" href="#" data-toggle="modal" data-target="dialog-deleteNote167">Delete<span class="nhsuk-u-visually-hidden"> note</span></a>
+                                                    </li>
+                                                </ul>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Matched student - Attendance confirmed on 15/05/2025 14:00:51</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">New payments Scheduled on 07/04/2025 17:27:08</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Application Approved" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance further evidence request sent on 07/04/2025 17:10:01</h3>
+                                            
+                                            
+                                            <p>I don't care much for boats but love a bargain, couldnt stop myself from getting it when I saw it had a sail on.</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Bank details updated on 07/04/2025 17:00:00</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Bank details updated" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Joe test</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">Matched student - Attendance confirmed on 07/04/2025 16:44:06</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr role="row">
+                                        <td>
+                                            <h3 class="nhsuk-heading-xs mt-0 mb-0">New payments Scheduled on 07/04/2025 16:43:10</h3>
+                                            
+                                            
+                                            <p>An email of type "NHS Bursary - Application Approved" has been sent</p>
+                                            <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                            </p>
+                                            
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-3" role="tabpanel" aria-labelledby="tab_tab-3">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-third">
+                                <h2 class="nhsuk-heading-m">Enrolments</h2>
+                            </div>
+
+                            <div class="nhsuk-grid-column-full">
+                                <table id="enrolmentTable" class="nhsuk-table-responsive">
+                                    <caption class="nhsuk-u-visually-hidden">Enrolments table</caption>
+                                    <thead role="rowgroup" class="nhsuk-table__head">
+                                    <tr role="row">
+                                        <th role="columnheader" scope="col">Academic year reference</th>
+                                        <th role="columnheader" scope="col">Academic year</th>
+                                        <th role="columnheader" scope="col">Study year</th>
+                                        <th role="columnheader" scope="col">Attendance status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="nhsuk-table__body">
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000145</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=145">
+                                                <span id="enrolmentNo0">BRN0000089-6</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2021-Sep</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 1</td>
+                                        <td role="cell" class="nhsuk-table__cell">Pending status</td>
+                                    </tr>
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000060</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=60">
+                                                <span id="enrolmentNo1">BRN0000089-6</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2024-Feb</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 1</td>
+                                        <td role="cell" class="nhsuk-table__cell">Pending status</td>
+                                    </tr>
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000059</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=59">
+                                                <span id="enrolmentNo2">BRN0000089-5</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2025-Feb</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 4</td>
+                                        <td role="cell" class="nhsuk-table__cell">Matched student - in attendance</td>
+                                    </tr>
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000035</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=35">
+                                                <span id="enrolmentNo3">BRN0000089-4</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2020-Sep</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 5</td>
+                                        <td role="cell" class="nhsuk-table__cell">Pending status</td>
+                                    </tr>
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000034</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=34">
+                                                <span id="enrolmentNo4">BRN0000089-3</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2024-Sep</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 4</td>
+                                        <td role="cell" class="nhsuk-table__cell">Matched student - in attendance</td>
+                                    </tr>
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="nhsuk-u-visually-hidden" hidden="">0000000024</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=24">
+                                                <span id="enrolmentNo5">BRN0000089-1</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">2022-Sep</td>
+                                        <td role="cell" class="nhsuk-table__cell">Course year 4</td>
+                                        <td role="cell" class="nhsuk-table__cell">Pending status</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-4" role="tabpanel" aria-labelledby="tab_tab-4">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-third">
+                                <h2 class="nhsuk-heading-m">Payments</h2>
+                            </div>
+                            <div class="nhsuk-grid-column-full">
+                                
+
+                                
+
+                                <table id="paymentsTable" class="nhsuk-table-responsive mb-20">
+                                    <caption class="nhsuk-u-visually-hidden">Payments table</caption>
+                                    <thead role="rowgroup" class="nhsuk-table__head">
+                                    <tr role="row">
+                                        <th role="columnheader" scope="col">Academic year reference</th>
+                                        <th role="columnheader" scope="col">Next payment</th>
+                                        <th role="columnheader" scope="col">Value</th>
+                                        <th role="columnheader" scope="col">Award count</th>
+                                        <th role="columnheader" scope="col">Held</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="nhsuk-table__body">
+                                    <tr role="row" class="nhsuk-table__row">
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="visually-hidden" hidden="">0000000034</span>
+                                            <a href="/internal/enrolment/details?enrolmentId=34">
+                                                <span id="studentPayment">BRN0000089-3</span>
+                                            </a>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">
+                                            <span class="visually-hidden" hidden="">2025-04-01</span>
+                                            <span>01/04/2025</span>
+                                        </td>
+                                        <td role="cell" class="nhsuk-table__cell">100.00</td>
+                                        <td role="cell" class="nhsuk-table__cell">1</td>
+                                        <td role="cell" class="nhsuk-table__cell">Yes</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                
+                                    
+                                        <!-- Action link -->
+                                        <div class="nhsuk-action-link">
+    <a class="nhsuk-action-link__link" href="/internal/payments/paymentDetails?studentId=89" id="paymentButton">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text">Manage payments</span>
+    </a>
+</div>
+                                    
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="tab-5" role="tabpanel" aria-labelledby="tab_tab-5">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-one-third">
+                                <h2 class="nhsuk-heading-m">Actions</h2>
+                            </div>
+                            <div class="nhsuk-grid-column-full">
+                                <!-- Action link -->
+                                <div class="nhsuk-action-link">
+    <a class="nhsuk-action-link__link" href="/internal/studentDetails/sendEmail?studentId=89" id="sendGeneralEmail">
+        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+        </svg>
+        <span class="nhsuk-action-link__text">Send custom email</span>
+    </a>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote241">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=241" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote209">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=209" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote208">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=208" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote207">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=207" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote206">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=206" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote168">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=168" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote167">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=167" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote166">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=166" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote126">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=126" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote125">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=125" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote124">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=124" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote123">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=123" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <div class="gem-c-modal-dialogue" data-module="modal-dialogue" id="dialog-deleteNote122">
+            <div class="gem-c-modal-dialogue__overlay"></div>
+            <dialog class="gem-c-modal-dialogue__box" aria-modal="true" role="dialog" tabindex="0">
+                <div class="gem-c-modal-dialogue__content">
+                    <h1 class="nhsuk-heading-l">Delete note</h1>
+                    <p>Are you sure you want to delete this note?</p>
+                    <div class="dialog-actions">
+                        <a class="nhsuk-button" href="/internal/notes/delete?noteId=122" role="button" data-module="nhsuk-button">Yes</a>
+                        <a class="nhsuk-button nhsuk-button--secondary modalNo" href="#" role="button" data-module="nhsuk-button">No</a>
+                    </div>
+                </div>
+                <button class="gem-c-modal-dialogue__close-button" aria-label="Close modal dialogue">×</button>
+            </dialog>
+        </div>
+
+        <!-- Dialogs --> <!-- <div class="dialog" th:id="'dialog-deleteNote' + ${note.id}" aria-hidden="true" th:each="note, stat : ${notes}">
+
+					<dialog class="dialog-holder"
+						th:aria-describedby="${'dialog-title-note' + stat.index}"
+						role="alertdialog">
+
+						<div class="dialog-content"
+							th:id="${'dialog-content-deletenote' + stat.index}" role="document"
+							tabindex="0">
+
+							<h1 class="dialog-heading"
+								th:id="${'dialog-title-note' + stat.index}">Delete note</h1>
+
+							<form class="form">
+
+								<p>Are you sure you want to delete this note?</p>
+
+								<div class="dialog-actions">
+									<a class="button" sec:authorize="hasAuthority('Delete Notes')"
+										th:href="@{/notes/delete(noteId=${note.id})}" role="button">Yes</a>
+									<a class="dialog-cancel" href="/">No</a>
+								</div>
+
+								<a class="dialog-close" aria-label="close dialog"
+									role="button"> <span class="icon icon-close">x</span>
+								</a>
+
+							</form>
+
+						</div>
+
+					</dialog>
+
+				</div>
+				<div class="dialog" th:id="'dialog-deleteDocument' + ${doc.id}"
+					th:each="doc : ${documents}">
+
+					<dialog class="dialog-holder" aria-labelledby="dialog-title-document"
+						aria-describedby="dialog-title-document" role="alertdialog">
+
+
+						<div class="dialog-content" id="dialog-content-document"
+							role="document">
+
+							<h1 class="dialog-heading" id="dialog-title-document">Delete
+								document</h1>
+
+							<form class="form">
+
+								<p>Are you sure you want to delete this document?</p>
+
+								<div class="dialog-actions">
+									<a class="button"
+										sec:authorize="hasAuthority('Delete Documents')"
+										th:href="@{/document/deleteDocument(documentUuid=${doc.uuid})}">Yes</a>
+									<a class="dialog-cancel" href="/">No</a>
+								</div>
+
+								<a class="dialog-close" aria-label="close" type="button"> <span
+									class="icon icon-close">x</span>
+								</a>
+
+							</form>
+
+						</div>
+
+					</dialog> -->
+        
+        <div class="dialog" id="dialog-signOut" aria-hidden="true">
+            <dialog id="signout-content-1" class="dialog-holder" role="alertdialog">
+                <div class="dialog-content" id="signoutContainer" role="document" tabindex="0">
+                    <h1 class="dialog-heading">Sign out</h1>
+                    <form class="form">
+                        <p id="signout-content-1">This will end your session. Are you sure you want to sign out?</p>
+
+                        <div class="dialog-actions">
+                            <a class="nhsuk-button nhsuk-u-margin-right-4" href="/internal/logout" role="button" data-module="nhsuk-button">Yes</a>
+                            <a class="nhsuk-button nhsuk-button--secondary" href="#" role="button" data-module="nhsuk-button" onclick="cancel()">No</a>
+                        </div>
+
+                        <a class="dialog-close" aria-label="close" type="button" role="button">
+                            <span class="icon icon-close">x</span>
+                        </a>
+                    </form>
+                </div>
+            </dialog>
+        </div>
+        <script>
+            function cancel() {
+                document.getElementById("signoutContainer").tabIndex = 0;
+                document.getElementById("dialog-signOut").ariaHidden = true;
+            }
+        </script>
+    
+    </main>
+</div>
+{% endblock %}
