@@ -1,0 +1,82 @@
+<!--
+  This is the main layout where you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "prototype-kit-template.njk" %}
+
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/assets/sass/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Edit the header -->
+<!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+  {{ header({
+    service: {
+      text: "Student Bursaries",
+      href: "/"
+    },
+    account: {
+    items: [
+      {
+        text: "Test user",
+        icon: true
+      },
+      {
+        text: "Log out",
+        href: "/internal/v0/sign-in"
+      }
+    ]
+  },
+    navigation: {
+    items: [
+      {
+        text: "Admin menu",
+        href: "/internal/v0/admin-menu"
+      },
+      {
+        text: "Student search",
+        href: "/internal/v0/search",
+        active: true
+      },
+      {
+        text: "Change password",
+        href: "#"
+      }
+    ]
+  }
+  }) }}
+{% endblock %}
+
+<!-- Edit the footer -->
+<!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
+{% block footer %}
+  {{ footer({
+    meta: {
+      items: [
+        {
+          href: "/",
+          text: "Home"
+        },
+        {
+          href: "/example-templates",
+          text: "Page templates"
+        },
+        {
+          href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+          text: "Reset data"
+        }
+      ]
+    }
+  }) }}
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% block pageScripts %}{% endblock %}
+{% endblock %}

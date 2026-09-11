@@ -1,0 +1,67 @@
+{% extends "layout-internal-signin.html" %}
+
+{% set pageName = "Page templates" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-app-heading">
+        <span class="nhsuk-caption-l">NHS Student Bursaries</span>
+        Sign in
+      </h1>
+
+      <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email"> Email </label>
+
+
+
+          <div id="usernameError" hidden="true">
+              <span class="nhsuk-u-visually-hidden">Error:</span>
+              <span class="nhsuk-error">Enter email</span>
+          </div>
+
+          <input aria-required="true" class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email"
+                 type="text" autocomplete="on"/>
+      </div>
+
+      <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="password"> Password </label>
+
+
+          <div id="passwordError" class="form-group-error" hidden="true">
+              <span class="nhsuk-u-visually-hidden">Error:</span>
+              <span class="nhsuk-error-message">Enter password</span>
+          </div>
+
+          <input aria-required="true" class="nhsuk-input nhsuk-u-width-two-thirds" id="password"
+                 type="password" name="password" autocomplete="off"/>
+          <button type="button"
+                  class="js-disabled nhsuk-button nhsuk-button--secondary nhsbsa-button__password nhsuk-u-margin-left-5"
+                  style="padding:4px 20px 1px 20px" data-module="nhsuk-button" aria-controls="password"
+                  aria-label="Show password" id="show">Show
+          </button>
+          <div class="nhsuk-u-visually-hidden" id="announce" aria-live="assertive"></div>
+      </div>
+
+      <div class="nhsuk-form-group">
+          <a href="search" class="nhsuk-button" value="Sign in" type="submit" id="signIn"
+                  data-module="nhsuk-button" data-prevent-double-click="true">Login</a>
+          <p><a href="#" id="forgottenPassword">Reset password</a></p>
+      </div>
+
+      <div class="nhsuk-inset-text">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p>For your security, you will be signed out of the service if you do not do anything for
+              <span>30</span>
+              minutes.</p>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
