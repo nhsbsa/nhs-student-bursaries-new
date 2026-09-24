@@ -9,8 +9,10 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 						<!-- Back link -->
-						<a class="nhsuk-back-link nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0"
-   href="/internal/dsa/summary" id="back-link">Go Back</a>
+            <a class="nhsuk-back-link nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0"
+   href="/internal/v0/dsa/summary" id="back-link">
+  Go back
+</a>
 
 						<h1 class="nhsuk-heading-l">
 							<span class="nhsuk-caption-l">
@@ -20,7 +22,7 @@
 							Request further evidence
 						</h1>
 
-						<form action="/internal/dsa/summary?formAction=needs" method="POST"><input type="hidden" name="_csrf" value="rBMp72HW9zr7rndA-t1g2_ojbmVWOBBJDpP15moejDUKEmtpniJP21Hizg3WmEAhzPBU680aQwdkWXRkbKDDhw8pvwMyJFoK"/>
+						<form action="/internal/v0/dsa/requestForm" method="POST">
 
 
 							<p class="nhsuk-caption">Complete text box to send email to student</p>
@@ -54,8 +56,9 @@
 							</div>
 
 							<div class="nhsuk-form-group">
-								<a href="../student-details?needs=email" class="nhsuk-button nhsuk-u-margin-right-5">Send</a>
-
+                  <button class="nhsuk-button nhsuk-u-margin-right-5" type="submit">
+                      Send
+                  </button>
 								<a href="../student-details?needs=no" class="nhsuk-button nhsuk-button--secondary">Proceed without email</a>
 							</div>
 						</form>

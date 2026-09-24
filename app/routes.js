@@ -7,4 +7,9 @@ const router = express.Router()
 
 router.use('/DSA-updates', require('./views/DSA-updates/_routes'));
 
+// ================================
+// Routes for Student
+// ================================
+router.use('/internal/v0', require('./views/internal/v0/_routes'));
+
 module.exports = router
