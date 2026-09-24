@@ -136,7 +136,7 @@
                   <details class="nhsuk-details nhsuk-expander" id="activity0">
 
                       <summary class="nhsuk-details__summary">
-                          <span class="nhsuk-details__summary-text">58 - DSA needs assessment (Active)</span>
+                          <span class="nhsuk-details__summary-text">58 - DSA needs assessment {% if data['dsa'] == "approved" or data['dsa'] == "needs" or data['dsa'] == "evidence" or data['dsa'] == "reject" %}(Complete){% else %}(Active){% endif %}</span>
                       </summary>
                       <div class="nhsuk-details__text"
                            id="details-content-activities[2]">
@@ -158,11 +158,48 @@
                                   <dt class="nhsuk-summary-list__value">michael.lee7@nhs.net</dt>
                               </div>
                           </dl>
-                          <p>
-
-                          </p>
+                          {% if data['locked'] == "true" %}
+                            {% if data['dsa'] == "approved" or data['dsa'] == "needs" or data['dsa'] == "evidence" or data['dsa'] == "reject" %}
+                            <p><a href="student-details?dsa=null">Activate</a></p>
+                            {% else %}
+                            <a href="dsa/summary" class="nhsuk-button">Assess</a>
+                            {% endif %}
+                          {% endif %}
                       </div>
                   </details>
+
+                  <details class="nhsuk-details nhsuk-expander" id="activity1">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">375 - DSA receipts {% if data['dsa-receipt'] == "closed" %}(Complete){% else %}(Active){% endif %}</span>
+                    </summary>
+                    <div class="nhsuk-details__text" id="details-content-activities[0]">
+                        <dl class="nhsuk-summary-list">
+                            <div class="nhsuk-summary-list__row">
+                                <dt class="nhsuk-summary-list__key">Date created:</dt>
+                                <dd class="nhsuk-summary-list__value">24/09/2026 14:41:44</dd>
+                            </div>
+                            <div class="nhsuk-summary-list__row">
+                                <dt class="nhsuk-summary-list__key">Date last updated:</dt>
+                                <dd class="nhsuk-summary-list__value">24/09/2026 14:41:44</dd>
+                            </div>
+                            <div class="nhsuk-summary-list__row">
+                                <dt class="nhsuk-summary-list__key">Last updated by:</dt>
+                                <dd class="nhsuk-summary-list__value">Joe test</dd>
+                            </div>
+                            <div class="nhsuk-summary-list__row">
+                                <dd class="nhsuk-summary-list__key">Cipher:</dd>
+                                <dt class="nhsuk-summary-list__value">testenvironment277+333@gmail.com</dt>
+                            </div>
+                        </dl>
+                        <p>
+                          {% if data['dsa-receipt'] == "closed" %}
+                            <a href="student-details?dsa-receipt=null">Activate</a>
+                          {% else %}
+                            <a id="viewActivity0" href="dsa/receipts"><strong>View</strong></a>
+                          {% endif %}
+                        </p>
+                    </div>
+                </details>
 
             </div>
         </div>
@@ -193,213 +230,37 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr role="row">
+                                {% if data['dsa'] == "needs" and data['needs'] == "email" %}
+                                <tr role="row">
                                   <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Recalculation complete on 10/09/2026 12:10:07</h3>
-
-
-                                      <p>Recalculation created. Status: Non-standard number of payments</p>
+                                      <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance further evidence request sent on 24/09/2026 09:27:33</h3>
+                                      <p>hello this is a test of approving for needs assessment</p>
+                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                      </p>
+                                  </td>
+                                </tr>
+                                {% endif %}
+                                {% if data['dsa'] == "evidence" and data['needs'] == "email" %}
+                                <tr role="row">
+                                    <td>
+                                      <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance further evidence request sent on 24/09/2026 14:26:15</h3>
+                                      <p>Exmaple message of what they need to send.</p>
                                       <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
                                       </p>
 
-                                  </td>
-                              </tr>
-                              <tr role="row">
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% if data['dsa'] == "reject" and data['needs'] == "email" %}
+                                <tr role="row">
                                   <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Recalculation complete on 10/09/2026 12:10:02</h3>
-
-
-                                      <p>Recalculation created. Status: Non-standard number of payments</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
+                                    <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance rejected sent on 24/09/2026 14:31:57</h3>
+                                    <p>hello this is an example message to say your DSA application has been rejected</p>
+                                    <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
+                                    </p>
                                   </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Matched student - Attendance confirmed on 23/02/2026 12:16:19</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Email notification of Disabled Students&#39; Allowance rejected sent on 17/10/2025 14:55:19</h3>
-
-
-                                      <p>hello joe</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Email Sent on 18/09/2025 10:53:52</h3>
-
-
-                                      <p>HALLO</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Email Sent on 18/09/2025 10:52:22</h3>
-
-
-                                      <p>HALLO
-<br /></p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Matched student - Attendance confirmed on 18/09/2025 10:48:53</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Change of Circumstances on 18/09/2025 10:48:35</h3>
-                                      <p>Linked activity 59 - DSA needs assessment</p>
-
-                                      <p>lll</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                          <ul class="nhsuk-list">
-                                              <li>
-                                                  <a id="editNote7"
-                                                     href="/internal/notes/edit?studentId=89&amp;noteId=206"
-                                                     class="nhsuk-u-margin-right-5">Edit<span
-                                                          class="nhsuk-u-visually-hidden"> note</span></a>
-                                              </li>
-                                              <li>
-                                                  <a id="deleteNote7" href="#"
-                                                     data-toggle="modal"
-                                                     data-target="dialog-deleteNote206">Delete<span
-                                                          class="nhsuk-u-visually-hidden"> note</span></a>
-                                              </li>
-                                          </ul>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Email Sent on 30/05/2025 10:41:57</h3>
-
-
-                                      <p>Hello there</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Call referrals on 28/05/2025 14:51:51</h3>
-
-
-                                      <p>Hello</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                          <ul class="nhsuk-list">
-                                              <li>
-                                                  <a id="editNote9"
-                                                     href="/internal/notes/edit?studentId=89&amp;noteId=167"
-                                                     class="nhsuk-u-margin-right-5">Edit<span
-                                                          class="nhsuk-u-visually-hidden"> note</span></a>
-                                              </li>
-                                              <li>
-                                                  <a id="deleteNote9" href="#"
-                                                     data-toggle="modal"
-                                                     data-target="dialog-deleteNote167">Delete<span
-                                                          class="nhsuk-u-visually-hidden"> note</span></a>
-                                              </li>
-                                          </ul>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Matched student - Attendance confirmed on 15/05/2025 14:00:51</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">New payments Scheduled on 07/04/2025 17:27:08</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Application Approved" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Email notification of Disabled Students&#39; Allowance further evidence request sent on 07/04/2025 17:10:01</h3>
-
-
-                                      <p>I don't care much for boats but love a bargain, couldnt stop myself from getting it when I saw it had a sail on.</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Bank details updated on 07/04/2025 17:00:00</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Bank details updated" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Joe test</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">Matched student - Attendance confirmed on 07/04/2025 16:44:06</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Attendance Confirmed" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
-                              <tr role="row">
-                                  <td>
-                                      <h3 class="nhsuk-heading-xs" style="margin-bottom: 0; margin-top: 0;">New payments Scheduled on 07/04/2025 16:43:10</h3>
-
-
-                                      <p>An email of type "NHS Bursary - Application Approved" has been sent</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                  </td>
-                              </tr>
+                                  </tr>
+                                  {% endif %}
                               </tbody>
                           </table>
                       </div>

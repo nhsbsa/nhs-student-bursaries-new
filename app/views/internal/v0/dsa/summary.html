@@ -1,0 +1,106 @@
+" style="margin-bottom: 0;"{% extends "layout-internal.html" %}
+
+{% set pageName = "Page templates" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1 class="nhsuk-app-heading">
+						<span class="nhsuk-caption-l">Disabled students&rsquo; allowance</span> Disabled Students&rsquo; Allowance Summary
+					</h1>
+
+					<div class="nhsuk-table__panel-with-heading-tab">
+						<h2 class="nhsuk-table__heading-tab">Evidence uploaded</h2>
+						<table role="table" class="nhsuk-table-responsive"  id="documentListTable">
+  							<caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Evidence uploaded</caption>
+  							<thead role="rowgroup" class="nhsuk-table__head">
+    							<tr role="row">
+      								<th role="columnheader" class="" scope="col">Type</th>
+      								<th role="columnheader" class="" scope="col">Upload date</th>
+      								<th role="columnheader" class="" scope="col">View</th>
+    							</tr>
+	  						</thead>
+  							<tbody class="nhsuk-table__body">
+    							<tr role="row" class="nhsuk-table__row" id="documentListTableRow">
+    								<td role="cell" class="nhsuk-table__cell">
+										<input type="hidden" id="documents0.id" name="documents[0].id" value=""></input>
+										<input type="hidden" id="documents0.created" name="documents[0].created" value=""></input>
+										<input type="hidden" id="documents0.documentType.Name" name="documents[0].documentType.Name" value=""></input>
+										<input type="hidden" id="documents0.fileAvailable" name="documents[0].fileAvailable" value="false"></input>
+										<span>Evidence of disability</span>
+									</td>
+	    							<td role="cell" class="nhsuk-table__cell">
+										<span>07-April-2025 17:07</span>
+									</td>
+      								<td role="cell" class="nhsuk-table__cell">
+      									<a id="document0"
+											href="#"
+											target="_blank">View<span class="nhsuk-u-visually-hidden"> Evidence of disability File 0(Opens in a new tab)</span></a>
+	      							</td>
+    	  							<td role="cell" class="nhsuk-table__cell">
+
+    	  							</td>
+
+    							<tr role="row" class="nhsuk-table__row" id="documentListTableRow">
+    								<td role="cell" class="nhsuk-table__cell">
+										<input type="hidden" id="documents1.id" name="documents[1].id" value=""></input>
+										<input type="hidden" id="documents1.created" name="documents[1].created" value=""></input>
+										<input type="hidden" id="documents1.documentType.Name" name="documents[1].documentType.Name" value=""></input>
+										<input type="hidden" id="documents1.fileAvailable" name="documents[1].fileAvailable" value="false"></input>
+										<span>Doctors report</span>
+									</td>
+	    							<td role="cell" class="nhsuk-table__cell">
+										<span>07-April-2025 17:07</span>
+									</td>
+      								<td role="cell" class="nhsuk-table__cell">
+      									<a id="document1"
+											href="#"
+											target="_blank">View<span class="nhsuk-u-visually-hidden"> Doctors report File 1(Opens in a new tab)</span></a>
+	      							</td>
+    	  							<td role="cell" class="nhsuk-table__cell">
+
+    	  							</td>
+      							</tbody>
+							</table>
+						</div>
+
+						<dl class="nhsuk-summary-list">
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">Have you been previously assessed for DSA?</dt>
+								<dd class="nhsuk-summary-list__value" id="previousAssessment">Yes</dd>
+							</div>
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">Date of assessment</dt>
+								<dd class="nhsuk-summary-list__value" id="dateOfAssessment">09/03/2025</dd>
+							</div>
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">Disability equipment</dt>
+								<dd class="nhsuk-summary-list__value" id="disabilityEquipment">Laptop, mobility scooter, audio recorder</dd>
+							</div>
+							<div class="nhsuk-summary-list__row">
+								<dt class="nhsuk-summary-list__key">Have your circumstances changed?</dt>
+								<dd class="nhsuk-summary-list__value" id="circumstancesChanged">No</dd>
+							</div>
+						</dl>
+
+
+					<div class="nhsuk-form-group">
+
+						<a href="../student-details?dsa=approved" class="nhsuk-button nhsuk-button--primary nhsbsa-u-margin-right-3">Approve</a>
+
+						<a id="requestNeeds" class="nhsuk-button nhsuk-button--primary nhsbsa-u-margin-right-3" role="button" data-module="nhsuk-button" href="requestForm?dsa=needs">Approve for Needs Assessment</a>
+
+						<a id="requestDocument" class="nhsuk-button nhsuk-button--secondary nhsbsa-u-margin-right-3" role="button" data-module="nhsuk-button" href="requestForm?dsa=evidence">Request more information</a>
+
+						<a id="rejectButton" class="nhsuk-button nhsuk-button--secondary" role="button" data-module="nhsuk-button" href="requestForm?dsa=reject">Reject Application</a>
+
+						<p><a href="../student-details" id="cancel-link">Cancel</a></p>
+					</div>
+  </div>
+</div>
+
+
+{% endblock %}

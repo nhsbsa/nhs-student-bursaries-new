@@ -1,0 +1,66 @@
+" style="margin-bottom: 0;"{% extends "layout-internal.html" %}
+
+{% set pageName = "Page templates" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+						<!-- Back link -->
+						<a class="nhsuk-back-link nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0"
+   href="/internal/dsa/summary" id="back-link">Go Back</a>
+
+						<h1 class="nhsuk-heading-l">
+							<span class="nhsuk-caption-l">
+								Application Assessment
+								<span class="nhsuk-u-visually-hidden"> - </span>
+							</span>
+							Request further evidence
+						</h1>
+
+						<form action="/internal/dsa/summary?formAction=needs" method="POST"><input type="hidden" name="_csrf" value="rBMp72HW9zr7rndA-t1g2_ojbmVWOBBJDpP15moejDUKEmtpniJP21Hizg3WmEAhzPBU680aQwdkWXRkbKDDhw8pvwMyJFoK"/>
+
+
+							<p class="nhsuk-caption">Complete text box to send email to student</p>
+
+							<div class="nhsuk-form-group" id="commentsGroup">
+								<label for="mailContent" class="nhsuk-label" id="mailContent-label">Dear student</label>
+
+
+
+								<textarea class="nhsuk-textarea" rows="8" id="mailContent" data-maxlength="2000" name="mailContent"></textarea>
+								<div id="charactersRemaining">Total 2000 characters</div>
+							</div>
+
+							<p>If you have any general queries about the NHS Student Bursary, please use our online enquiry system <a href="https://faq.nhsbsa.nhs.uk/knowledgebase/category/?articlecategory=NHS%20Bursary&amp;id=CAT-05069&amp;parentid=" target="_blank" rel="noopener">'Ask Us'<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a> which is available 24 hours a day, 7 days a week. If you cannot find the answer you require, you can contact us using the details below:</p>
+
+							<ul class="nhsuk-list nhsuk-list--bullet">
+								<li>Telephone: 0300 330 1345</li>
+								<li>Text relay service: 18001 0300 330 1345</li>
+								<li>Twitter: <a href="https://www.twitter.com/NHSBSA_Students" target="_blank" rel="noopener">@NHSBSA_Students<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a></li>
+								<li>Facebook: <a href="https://www.facebook.com/NHSstudentbursaries" target="_blank" rel="noopener">NHSstudentbursaries<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a></li>
+							</ul>
+
+							<br/>
+							<p>Yours sincerely,</p>
+							<br/>
+							<p>Student Services</p>
+							<p>NHS Business Services Authority</p>
+
+							<div class="nhsuk-form-group">
+								<p><a class="js-disabled" href="#" id="clear">Clear form data</a></p>
+							</div>
+
+							<div class="nhsuk-form-group">
+								<a href="../student-details?needs=email" class="nhsuk-button nhsuk-u-margin-right-5">Send</a>
+
+								<a href="../student-details?needs=no" class="nhsuk-button nhsuk-button--secondary">Proceed without email</a>
+							</div>
+						</form>
+					</div>
+</div>
+
+
+{% endblock %}
