@@ -1,0 +1,99 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">
+        NHS (Student) Bursary internal prototype
+      </h1>
+
+      <hr>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Base prototype of existing system September 2026
+          </span>
+        </summary>
+
+        <div class="nhsuk-details__text">
+          <p>This is a replica of the test environment systm in September 2026 as a new starting point for the Student Bursary prototype.</p>
+          <div class="nhsuk-hint">Last updated 11 September 2026</div>
+          <ul>
+            <li>Jira ticket: <a href="https://bsa2468.atlassian.net/browse/SSCRD-372" target="_blank">SSCRD-372</a></li>
+            <!--<li>Miro board <a href="/using-the-nhs/nhs-services/gps/gp-online-services/">GP online services</a></li>-->
+          </ul>
+          <h2 class="nhsuk-heading-s">Journey start locations</h2>
+          <ul>
+            <li><a href="v0/sign-in">Sign in</a></li>
+            <li><a href="v0/search">Student search</a></li>
+            <li><a href="v0/student-details">Student details</a></li>
+          </ul>
+          <a class="nhsuk-action-link" href="v0/sign-in">
+            <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+            </svg>
+            <span class="nhsuk-action-link__text">Sign in page</span>
+          </a>
+        </div>
+      </details>
+
+      <hr>
+
+      <h2 class="nhsuk-heading-m">
+        Prototype work done before September 2026
+      </h2>
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+         DSA manual process 2 February 2026
+          </span>
+        </summary>
+
+        <div class="nhsuk-details__text">
+          <p>Summary</p>
+          <div class="nhsuk-hint">Last updated 3.2.26</div>
+          <ul>
+            <li>Jira ticket:</li>
+            <li>Miro board <a href="/using-the-nhs/nhs-services/gps/gp-online-services/">GP online services</a></li>
+          </ul>
+      <a class="nhsuk-action-link" href="DSA-updates/student-landing-initial">
+        <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+        </svg>
+        <span class="nhsuk-action-link__text">DSA manual process</span>
+      </a>
+        </div>
+      </details>
+
+    </div>
+  </div>
+{% endblock %}
