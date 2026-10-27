@@ -1,0 +1,32 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Approved for needs assessment" %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-panel nhsuk-panel--confirmation">
+      <h1 class="nhsuk-panel__title">Approved for needs assessment</h1>
+      <div class="nhsuk-panel__body">John Mark · BRN0000147</div>
+    </div>
+
+    <h2 class="nhsuk-heading-m">What you need to do next</h2>
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>Email John Mark to tell him his evidence has been accepted and he needs to book a needs assessment. NHSBSA will pay for it.</li>
+    </ul>
+
+    <h2 class="nhsuk-heading-m">What happens next</h2>
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>His DSA needs assessment activity now shows <strong class="nhsuk-tag nhsuk-tag--yellow">Awaiting needs assessment</strong></li>
+      <li>You cannot add any allowances until his needs assessment report arrives.</li>
+      <li>When he uploads the report, open the activity, select Assess, then Approve.</li>
+    </ul>
+
+    <a href="/internal/v1/student-details" class="nhsuk-button">Return to student record</a>
+
+    <p><a href="/internal/v1/search">Search for another student</a></p>
+
+  </div>
+</div>
+{% endblock %}

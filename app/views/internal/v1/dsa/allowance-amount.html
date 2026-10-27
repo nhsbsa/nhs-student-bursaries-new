@@ -1,0 +1,48 @@
+{% extends 'layout-internal.html' %}
+
+{% set labels = {
+  "general": "general allowance",
+  "equipment": "specialist equipment",
+  "fee": "the needs assessment fee"
+} %}
+{% set typeLabel = labels[data['allowance-type']] or "this allowance" %}
+
+{% set pageName = "What amount has been approved for " + typeLabel + "?" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/allowance-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+
+      <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+
+      <div class="nhsuk-form-group">
+        <h1 class="nhsuk-label-wrapper">
+          <label class="nhsuk-label nhsuk-label--l" for="allowance-amount">What amount has been approved for {{ typeLabel }}?</label>
+        </h1>
+        <div class="nhsuk-hint" id="allowance-amount-hint">Enter the amount shown in the needs assessment report, for example 150 or 150.50.</div>
+        <div class="nhsuk-input-wrapper">
+          <div class="nhsuk-input__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-10" id="allowance-amount" name="allowance-amount" type="text" inputmode="decimal" spellcheck="false" aria-describedby="allowance-amount-hint" value="{{ data['allowance-amount'] }}">
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="allowance-notes">Notes (optional)</label>
+        <div class="nhsuk-hint" id="allowance-notes-hint">For example, what the allowance is for or any conditions.</div>
+        <textarea class="nhsuk-textarea" id="allowance-notes" name="allowance-notes" rows="3" aria-describedby="allowance-notes-hint">{{ data['allowance-notes'] }}</textarea>
+      </div>
+
+      <button class="nhsuk-button" type="submit">Continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

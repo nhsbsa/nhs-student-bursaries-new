@@ -1,0 +1,54 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Remove allowance" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/allowances">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-l">
+      <span class="nhsuk-caption-l">John Mark · BRN0000147<span class="nhsuk-u-visually-hidden"> - </span></span>
+      Are you sure you want to remove this allowance?
+    </h1>
+
+    <dl class="nhsuk-summary-list">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Allowance</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.label }}</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Details</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.details or "None" }}</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Approved amount</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.amountDisplay }}</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Hours or journeys</dt>
+        <dd class="nhsuk-summary-list__value">
+          {% if item.hours %}{{ item.hours }} hours{% elif item.journeys %}{{ item.journeys }} journeys{% else %}Not applicable{% endif %}
+        </dd>
+      </div>
+    </dl>
+
+    <div class="nhsuk-warning-callout">
+      <h2 class="nhsuk-warning-callout__label">
+        <span role="text"><span class="nhsuk-u-visually-hidden">Important: </span>Warning</span>
+      </h2>
+      <p>If you remove this allowance, you'll need to add it again if it was removed by mistake.</p>
+    </div>
+
+    <form method="post" novalidate>
+      <button class="nhsuk-button nhsuk-button--warning" type="submit" data-module="nhsuk-button">Remove allowance</button>
+    </form>
+
+    <p><a href="/internal/v1/dsa/allowances">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

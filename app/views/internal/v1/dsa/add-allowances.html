@@ -1,0 +1,34 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Add DSA allowances" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/summary">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+    <h1 class="nhsuk-heading-l">Add DSA allowances</h1>
+
+    <p>Add the allowances approved in the student's needs assessment report.</p>
+    <p>You can add one allowance at a time. You'll be able to check all the allowances before you save them.</p>
+
+    <div class="nhsuk-inset-text">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>For some allowances you'll also need:</p>
+      <ul>
+        <li>non-medical helper: the service, provider and approved hours</li>
+        <li>travel: the approved number of journeys</li>
+      </ul>
+    </div>
+
+    <a href="/internal/v1/dsa/allowance-type" class="nhsuk-button">Add an allowance</a>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

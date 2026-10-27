@@ -1,0 +1,268 @@
+{% extends "layout-internal.html" %}
+
+{% set pageName = "Page templates" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .sb-sort-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-weight: 600;
+    color: #005eb8;
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .sb-sort-button:hover {
+    color: #7c2855;
+    text-decoration-thickness: 3px;
+  }
+  .sb-sort-button:focus {
+    outline: none;
+    color: #212b32;
+    background-color: #ffeb3b;
+    box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+    text-decoration: none;
+  }
+  .sb-sort-button svg {
+    width: 22px;
+    height: 22px;
+    flex: none;
+  }
+  th[aria-sort="ascending"],
+  th[aria-sort="descending"] {
+    box-shadow: inset 0 -4px 0 #005eb8;
+  }
+</style>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+        <h1 class="nhsuk-fieldset__heading">
+          Student search
+        </h1>
+      </legend>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group">
+            <label for="studentRefNo" class="nhsuk-label">Student reference</label>
+            <input id="studentRefNo" class="nhsuk-input" type="text" name="studentReferenceNo" value="" />
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group">
+            <label for="uniRefNo" class="nhsuk-label">Student ID</label>
+            <input id="uniRefNo" class="nhsuk-input" type="text" name="universityReferenceNo" value="" />
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group">
+            <label for="sfeRefNo" class="nhsuk-label">Student SFE number</label>
+            <input id="sfeRefNo" class="nhsuk-input" type="text" name="sfeReferenceNo" value="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group" id="email-group">
+            <label for="mail" class="nhsuk-label">Email address</label>
+            <input id="mail" class="nhsuk-input" type="text" spellcheck="false" name="email" value="" />
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group" id="postcode-group">
+            <label for="postcode" class="nhsuk-label">Postcode</label>
+            <input id="postcode" class="nhsuk-input" type="text" name="postcode" value="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group" id="firstname-group">
+            <label for="firstname" class="nhsuk-label">First name</label>
+            <input id="firstname" class="nhsuk-input" type="text" name="firstName" value="" />
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group" id="lastname-group">
+            <label for="lastname" class="nhsuk-label">Surname</label>
+            <input id="lastname" class="nhsuk-input" type="text" name="lastName" value="" />
+          </div>
+        </div>
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group" id="dob-group">
+            <fieldset id="dob" role="group" class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Date of birth</legend>
+              <div class="nhsuk-date-input">
+                <div class="nhsuk-date-input__item">
+                  <label id="dob-day-label" class="nhsuk-label" for="dob-day">Day</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                         id="dob-day" type="text" placeholder="dd" name="dob.day" value="">
+                </div>
+                <div class="nhsuk-date-input__item">
+                  <label id="dob-month-label" class="nhsuk-label" for="dob-month">Month</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2"
+                         id="dob-month" type="text" placeholder="mm" name="dob.month" value="">
+                </div>
+                <div class="nhsuk-date-input__item">
+                  <label id="dob-year-label" class="nhsuk-label" for="dob-year">Year</label>
+                  <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4"
+                         id="dob-year" type="text" placeholder="yyyy" name="dob.year" value="">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="nhsuk-form-group">
+      <a href="search?results=true" class="nhsuk-button nhsuk-u-margin-right-6" data-module="nhsuk-button">Search</a>
+      <a href="search?results=false" class="nhsuk-button nhsuk-button--secondary" id="lockedButton" data-module="nhsuk-button">Locked by me</a>
+    </div>
+
+    <p><a href="search?results=false" id="clearButton">Clear search</a></p>
+
+    {% if data['results'] == "true" %}
+
+      <table class="nhsuk-table nhsuk-u-margin-top-7" id="searchResultsTable">
+        <caption class="nhsuk-table__caption nhsuk-table__caption--l">
+          Search results<span class="nhsuk-u-visually-hidden"> (Column headers with buttons are sortable)</span>
+        </caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;" data-sb-sort aria-sort="none">Student ref</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;" data-sb-sort aria-sort="ascending">Name</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;" data-sb-sort aria-sort="none">Date of birth</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;">Postcode</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;">Email</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;">SFE number</th>
+            <th class="nhsuk-table__header" scope="col" style="white-space: nowrap;">Student ID</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="row" style="white-space: nowrap;">
+              <a href="student-details">BRN0000089</a>
+            </th>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="Mark John">John Mark</td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="1997-04-09">09/04/1997</td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;">NE1 1AA</td>
+            <td class="nhsuk-table__cell" style="overflow-wrap: anywhere;">testenvironment277+333@gmail.com</td>
+            <td class="nhsuk-table__cell">111111</td>
+            <td class="nhsuk-table__cell">S4471209</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="row" style="white-space: nowrap;">
+              <a href="student-details">BRN0000112</a>
+            </th>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="Lisa ">Lisa </td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="2004-11-23">23/11/2004</td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;">LS2 9JT</td>
+            <td class="nhsuk-table__cell" style="overflow-wrap: anywhere;">lisa@example.com</td>
+            <td class="nhsuk-table__cell">224518</td>
+            <td class="nhsuk-table__cell">S5102836</td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="row" style="white-space: nowrap;">
+              <a href="student-details">BRN0000074</a>
+            </th>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="Hutchinson Jo">Jo Mark</td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;" data-sort-value="1999-02-14">14/02/1999</td>
+            <td class="nhsuk-table__cell" style="white-space: nowrap;">M1 4BT</td>
+            <td class="nhsuk-table__cell" style="overflow-wrap: anywhere;">jo.mark@example.com</td>
+            <td class="nhsuk-table__cell">198330</td>
+            <td class="nhsuk-table__cell">S3958814</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="nhsuk-u-visually-hidden" id="sortAnnounce" aria-live="polite"></div>
+
+    {% endif %}
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var table = document.getElementById('searchResultsTable');
+    if (!table) return;
+
+    var icons = {
+      none: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 20V4"/><path d="M3.5 8.5 8 4l4.5 4.5"/><path d="M16 4v16"/><path d="M11.5 15.5 16 20l4.5-4.5"/></svg>',
+      ascending: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20V4"/><path d="M6 10l6-6 6 6"/></svg>',
+      descending: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16"/><path d="M6 14l6 6 6-6"/></svg>'
+    };
+
+    var headerRow = table.tHead.rows[0];
+    var headers = Array.prototype.slice.call(headerRow.cells);
+    var tbody = table.tBodies[0];
+    var announce = document.getElementById('sortAnnounce');
+
+    function cellValue(row, index) {
+      var cell = row.cells[index];
+      return (cell.getAttribute('data-sort-value') || cell.textContent).trim();
+    }
+
+    function sortBy(th, direction, speak) {
+      var index = headers.indexOf(th);
+      var rows = Array.prototype.slice.call(tbody.rows);
+
+      rows.sort(function (a, b) {
+        var result = cellValue(a, index).localeCompare(cellValue(b, index), 'en', { numeric: true, sensitivity: 'base' });
+        return direction === 'ascending' ? result : -result;
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+
+      headers.forEach(function (h) {
+        if (!h.hasAttribute('data-sb-sort')) return;
+        var state = (h === th) ? direction : 'none';
+        h.setAttribute('aria-sort', state);
+        h.querySelector('.sb-sort-icon').innerHTML = icons[state];
+      });
+
+      if (speak && announce) {
+        announce.textContent = 'Sorted by ' + th.querySelector('.sb-sort-label').textContent + ', ' + direction;
+      }
+    }
+
+    headers.forEach(function (th) {
+      if (!th.hasAttribute('data-sb-sort')) return;
+      var label = th.textContent.trim();
+      var state = th.getAttribute('aria-sort') || 'none';
+
+      th.innerHTML =
+        '<button type="button" class="sb-sort-button">' +
+          '<span class="sb-sort-label">' + label + '</span>' +
+          '<span class="sb-sort-icon">' + icons[state] + '</span>' +
+        '</button>';
+
+      th.querySelector('button').addEventListener('click', function () {
+        var next = th.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+        sortBy(th, next, true);
+      });
+    });
+
+    var startColumn = table.querySelector('th[aria-sort="ascending"], th[aria-sort="descending"]');
+    if (startColumn) sortBy(startColumn, startColumn.getAttribute('aria-sort'), false);
+  })();
+</script>
+
+{% endblock %}

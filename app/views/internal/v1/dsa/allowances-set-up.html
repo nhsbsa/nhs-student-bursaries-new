@@ -1,0 +1,62 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "DSA allowances set up" %}
+
+{% set rows = data['allowances'] or [] %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-panel nhsuk-panel--confirmation">
+      <h1 class="nhsuk-panel__title">DSA allowances set up</h1>
+      <div class="nhsuk-panel__body">John Mark · BRN0000147</div>
+    </div>
+
+    <table class="nhsuk-table nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-8">
+      <caption class="nhsuk-table__caption nhsuk-table__caption--m">Approved allowances</caption>
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col">Allowance</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Approved</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Used</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Remaining</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        {% for item in rows %}
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">
+            {{ item.label }}
+            {% if item.details %}<div class="nhsuk-hint nhsuk-u-margin-bottom-0">{{ item.details }}</div>{% endif %}
+          </td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">£0.00</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="row">Total</th>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>{{ total }}</strong></td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>£0.00</strong></td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>{{ total }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="nhsuk-heading-m">What you need to do next</h2>
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>Email John Mark his approved allowances.</li>
+      <li>Add any payment that is due now as a one-off payment in the Payments tab.</li>
+    </ul>
+
+    <h2 class="nhsuk-heading-m">What happens next</h2>
+    <p>When Joe buys something covered by his allowances, he uploads the receipt. You'll then record the payment against the right allowance.</p>
+
+    <a href="/internal/v1/student-details" class="nhsuk-button" data-module="nhsuk-button">Return to student record</a>
+
+    <p><a href="/internal/v1/search">Search for another student</a></p>
+
+  </div>
+</div>
+{% endblock %}

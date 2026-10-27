@@ -1,0 +1,109 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Check allowance details" %}
+
+{% if item.type == 'nmh' %}
+  {% set detailsPage = "/internal/v1/dsa/nmh-details" %}
+{% elif item.type == 'travel' %}
+  {% set detailsPage = "/internal/v1/dsa/travel-details" %}
+{% else %}
+  {% set detailsPage = "/internal/v1/dsa/allowance-amount" %}
+{% endif %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="{{ detailsPage }}">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+    <h1 class="nhsuk-heading-l">Check allowance details</h1>
+
+    <dl class="nhsuk-summary-list">
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Allowance type</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.label }}</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="/internal/v1/dsa/allowance-type">Change<span class="nhsuk-u-visually-hidden"> allowance type</span></a>
+        </dd>
+      </div>
+
+      {% if item.type == 'nmh' %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Service</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.service }}</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> service</span></a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Provider</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.provider }}</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> provider</span></a>
+        </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Approved hours</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.hours }} hours</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> approved hours</span></a>
+        </dd>
+      </div>
+
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Approved amount</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.amountDisplay }}</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> approved amount</span></a>
+        </dd>
+      </div>
+
+      {% if item.type == 'nmh' and item.rate %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Hourly rate</dt>
+        <dd class="nhsuk-summary-list__value">
+          {{ item.rate }} per hour
+          <div class="nhsuk-hint nhsuk-u-margin-bottom-0">Worked out from the approved amount and hours</div>
+        </dd>
+        <dd class="nhsuk-summary-list__actions"></dd>
+      </div>
+      {% endif %}
+
+      {% if item.type == 'travel' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Approved journeys</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.journeys }} journeys</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> approved journeys</span></a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Notes</dt>
+        <dd class="nhsuk-summary-list__value">{{ item.notes or "None added" }}</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="{{ detailsPage }}">Change<span class="nhsuk-u-visually-hidden"> notes</span></a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <form method="post" novalidate>
+      <button class="nhsuk-button" type="submit">Save and continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

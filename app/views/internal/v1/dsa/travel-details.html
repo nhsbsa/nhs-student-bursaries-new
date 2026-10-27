@@ -1,0 +1,50 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Travel allowance details" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/allowance-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+    <h1 class="nhsuk-heading-l">Travel allowance details</h1>
+    <p>Enter the travel approved in the needs assessment report.</p>
+
+    <form method="post" novalidate>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="travel-amount">Approved amount</label>
+        <div class="nhsuk-hint" id="travel-amount-hint">For example, 500 or 500.50.</div>
+        <div class="nhsuk-input-wrapper">
+          <div class="nhsuk-input__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-10" id="travel-amount" name="travel-amount" type="text" inputmode="decimal" spellcheck="false" aria-describedby="travel-amount-hint" value="{{ data['travel-amount'] }}">
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="travel-journeys">Approved number of journeys</label>
+        <div class="nhsuk-hint" id="travel-journeys-hint">As shown in the needs assessment report.</div>
+        <div class="nhsuk-input-wrapper">
+          <input class="nhsuk-input nhsuk-input--width-5" id="travel-journeys" name="travel-journeys" type="text" inputmode="numeric" spellcheck="false" aria-describedby="travel-journeys-hint" value="{{ data['travel-journeys'] }}">
+          <div class="nhsuk-input__suffix" aria-hidden="true">journeys</div>
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="travel-notes">Notes (optional)</label>
+        <div class="nhsuk-hint" id="travel-notes-hint">For example, the type of journey, such as taxi between home and university.</div>
+        <textarea class="nhsuk-textarea" id="travel-notes" name="travel-notes" rows="3" aria-describedby="travel-notes-hint">{{ data['travel-notes'] }}</textarea>
+      </div>
+
+      <button class="nhsuk-button" type="submit">Continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

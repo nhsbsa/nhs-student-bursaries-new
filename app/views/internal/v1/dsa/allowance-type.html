@@ -1,0 +1,66 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "What type of allowance is this?" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/add-allowances">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="type-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+            <h1 class="nhsuk-fieldset__heading">What type of allowance is this?</h1>
+          </legend>
+
+          <div class="nhsuk-hint" id="type-hint">Use the needs assessment report.</div>
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="type-general" name="allowance-type" type="radio" value="general" aria-describedby="type-general-hint" {{ 'checked' if data['allowance-type'] == 'general' }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="type-general">General allowance</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="type-general-hint">Consumables and other study-related costs, for example ink and paper.</div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="type-nmh" name="allowance-type" type="radio" value="nmh" aria-describedby="type-nmh-hint" {{ 'checked' if data['allowance-type'] == 'nmh' }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="type-nmh">Non-medical helper</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="type-nmh-hint">Support such as study skills or assistive technology training. You'll also enter the service, provider and hours.</div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="type-equipment" name="allowance-type" type="radio" value="equipment" aria-describedby="type-equipment-hint" {{ 'checked' if data['allowance-type'] == 'equipment' }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="type-equipment">Specialist equipment</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="type-equipment-hint">For example a laptop or assistive software. Usually only for students new to DSA: students moving from Student Finance England have normally had this paid already.</div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="type-travel" name="allowance-type" type="radio" value="travel" aria-describedby="type-travel-hint" {{ 'checked' if data['allowance-type'] == 'travel' }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="type-travel">Travel allowance</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="type-travel-hint">Extra travel costs because of the student's disability. You'll also enter the number of journeys.</div>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="type-fee" name="allowance-type" type="radio" value="fee" aria-describedby="type-fee-hint" {{ 'checked' if data['allowance-type'] == 'fee' }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="type-fee">Needs assessment fee</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="type-fee-hint">The cost of the student's needs assessment.</div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="nhsuk-button" type="submit">Continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

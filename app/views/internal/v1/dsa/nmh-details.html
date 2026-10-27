@@ -1,0 +1,59 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Non-medical helper details" %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/allowance-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+    <h1 class="nhsuk-heading-l">Non-medical helper details</h1>
+    <p>Enter the details for one non-medical helper service from the needs assessment report. If the student has more than one service, add each one separately.</p>
+
+    <form method="post" novalidate>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="nmh-service">Service</label>
+        <div class="nhsuk-hint" id="nmh-service-hint">For example, specialist one-to-one study skills or assistive technology training.</div>
+        <input class="nhsuk-input" id="nmh-service" name="nmh-service" type="text" aria-describedby="nmh-service-hint" value="{{ data['nmh-service'] }}">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="nmh-provider">Provider</label>
+        <input class="nhsuk-input" id="nmh-provider" name="nmh-provider" type="text" value="{{ data['nmh-provider'] }}">
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="nmh-hours">Approved hours</label>
+        <div class="nhsuk-input-wrapper">
+          <input class="nhsuk-input nhsuk-input--width-5" id="nmh-hours" name="nmh-hours" type="text" inputmode="numeric" spellcheck="false" value="{{ data['nmh-hours'] }}">
+          <div class="nhsuk-input__suffix" aria-hidden="true">hours</div>
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="nmh-amount">Approved amount</label>
+        <div class="nhsuk-hint" id="nmh-amount-hint">The total approved for this service, for example 2160 or 2160.50.</div>
+        <div class="nhsuk-input-wrapper">
+          <div class="nhsuk-input__prefix" aria-hidden="true">£</div>
+          <input class="nhsuk-input nhsuk-input--width-10" id="nmh-amount" name="nmh-amount" type="text" inputmode="decimal" spellcheck="false" aria-describedby="nmh-amount-hint" value="{{ data['nmh-amount'] }}">
+        </div>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="nmh-notes">Notes (optional)</label>
+        <textarea class="nhsuk-textarea" id="nmh-notes" name="nmh-notes" rows="3">{{ data['nmh-notes'] }}</textarea>
+      </div>
+
+      <button class="nhsuk-button" type="submit">Continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

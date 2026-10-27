@@ -1,0 +1,135 @@
+{% extends "layout-internal.html" %}
+
+{% set pageName = "DSA application summary" %}
+
+{% set showError = data['dsa-decision-error'] == 'true' %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/student-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{% if showError %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+      <h2 class="nhsuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+      <div class="nhsuk-error-summary__body">
+        <ul class="nhsuk-list nhsuk-error-summary__list">
+          <li><a href="#dsa-decision-approve">Select a decision</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1 class="nhsuk-heading-l">
+      <span class="nhsuk-caption-l">John Mark · BRN0000147<span class="nhsuk-u-visually-hidden"> - </span></span>
+      DSA application summary
+    </h1>
+
+    <div class="nhsuk-table__panel-with-heading-tab">
+      <h2 class="nhsuk-table__heading-tab">Evidence uploaded</h2>
+      <table class="nhsuk-table" id="documentListTable">
+        <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Evidence uploaded</caption>
+        <thead class="nhsuk-table__head">
+          <tr class="nhsuk-table__row">
+            <th class="nhsuk-table__header" scope="col">Type</th>
+            <th class="nhsuk-table__header" scope="col">Uploaded</th>
+            <th class="nhsuk-table__header" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Evidence of disability</td>
+            <td class="nhsuk-table__cell">7 April 2025 at 5:07pm</td>
+            <td class="nhsuk-table__cell">
+              <a id="document0" href="#" target="_blank" rel="noopener noreferrer">View<span class="nhsuk-u-visually-hidden"> evidence of disability</span> (opens in new tab)</a>
+            </td>
+          </tr>
+          <tr class="nhsuk-table__row">
+            <td class="nhsuk-table__cell">Doctor's report</td>
+            <td class="nhsuk-table__cell">7 April 2025 at 5:07pm</td>
+            <td class="nhsuk-table__cell">
+              <a id="document1" href="#" target="_blank" rel="noopener noreferrer">View<span class="nhsuk-u-visually-hidden"> doctor's report</span> (opens in new tab)</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="nhsuk-heading-m">Application details</h2>
+    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-8">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Previously assessed for DSA</dt>
+        <dd class="nhsuk-summary-list__value" id="previousAssessment">Yes</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Date of assessment</dt>
+        <dd class="nhsuk-summary-list__value" id="dateOfAssessment">9 March 2025</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Equipment needed</dt>
+        <dd class="nhsuk-summary-list__value" id="disabilityEquipment">Laptop, mobility scooter, audio recorder</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Change in circumstances</dt>
+        <dd class="nhsuk-summary-list__value" id="circumstancesChanged">No</dd>
+      </div>
+    </dl>
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+      <div class="nhsuk-form-group {% if showError %}nhsuk-form-group--error{% endif %}">
+        <fieldset class="nhsuk-fieldset" {% if showError %}aria-describedby="dsa-decision-error"{% endif %}>
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">What is your decision?</h2>
+          </legend>
+
+          {% if showError %}
+          <span class="nhsuk-error-message" id="dsa-decision-error">
+            <span class="nhsuk-u-visually-hidden">Error:</span> Select a decision
+          </span>
+          {% endif %}
+
+          <div class="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="dsa-decision-approve" name="dsa-decision" type="radio" value="approve" aria-describedby="dsa-decision-approve-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="dsa-decision-approve">Approve and add allowances</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="dsa-decision-approve-hint">The student already has a needs assessment, for example their DSA is moving from Student Finance England.</div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="dsa-decision-needs" name="dsa-decision" type="radio" value="needs" aria-describedby="dsa-decision-needs-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="dsa-decision-needs">Approve for needs assessment</label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="dsa-decision-needs-hint">The student is eligible but needs a needs assessment before allowances can be set up.</div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="dsa-decision-evidence" name="dsa-decision" type="radio" value="evidence">
+              <label class="nhsuk-label nhsuk-radios__label" for="dsa-decision-evidence">Request more information</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="dsa-decision-reject" name="dsa-decision" type="radio" value="reject">
+              <label class="nhsuk-label nhsuk-radios__label" for="dsa-decision-reject">Reject application</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="nhsuk-button" type="submit" data-module="nhsuk-button">Continue</button>
+    </form>
+
+    <p><a href="/internal/v1/student-details" id="cancel-link">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

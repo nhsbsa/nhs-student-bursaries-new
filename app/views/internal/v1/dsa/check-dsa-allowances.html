@@ -1,0 +1,89 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "Check DSA allowances" %}
+
+{% set rows = data['allowances'] or [] %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/allowances">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <h1 class="nhsuk-heading-l">
+      <span class="nhsuk-caption-l">John Mark · BRN0000147<span class="nhsuk-u-visually-hidden"> - </span></span>
+      Check DSA allowances
+    </h1>
+
+    <h2 class="nhsuk-heading-m nhsuk-u-margin-top-6">Application</h2>
+    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-8">
+      <div class="nhsuk-summary-list__row nhsuk-summary-list__row--no-actions">
+        <dt class="nhsuk-summary-list__key">Evidence</dt>
+        <dd class="nhsuk-summary-list__value">Evidence of disability, doctor's report</dd>
+      </div>
+      <div class="nhsuk-summary-list__row nhsuk-summary-list__row--no-actions">
+        <dt class="nhsuk-summary-list__key">Date of assessment</dt>
+        <dd class="nhsuk-summary-list__value">9 March 2025</dd>
+      </div>
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">Decision</dt>
+        <dd class="nhsuk-summary-list__value">Approved</dd>
+        <dd class="nhsuk-summary-list__actions">
+          <a href="/internal/v1/dsa/summary">Change<span class="nhsuk-u-visually-hidden"> decision</span></a>
+        </dd>
+      </div>
+    </dl>
+
+    <table class="nhsuk-table nhsuk-u-margin-bottom-8">
+      <caption class="nhsuk-table__caption nhsuk-table__caption--m">Allowances</caption>
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col">Allowance</th>
+          <th class="nhsuk-table__header" scope="col">Details</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Approved amount</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Hours or journeys</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        {% for item in rows %}
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">{{ item.label }}</td>
+          <td class="nhsuk-table__cell">{{ item.details or "None" }}</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">
+            {% if item.hours %}{{ item.hours }} hours{% elif item.journeys %}{{ item.journeys }} journeys{% else %}Not applicable{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="row">Total</th>
+          <td class="nhsuk-table__cell"></td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>{{ total }}</strong></td>
+          <td class="nhsuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="nhsuk-inset-text nhsuk-u-margin-top-0">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p>When you save these allowances they will be added to John Mark's record. You'll then need to email him his approved allowances.</p>
+    </div>
+
+    <form method="post" novalidate>
+      <button class="nhsuk-button nhsuk-u-margin-right-4" type="submit" data-module="nhsuk-button">Save allowances</button>
+      <a class="nhsuk-button nhsuk-button--secondary" href="/internal/v1/dsa/allowances" data-module="nhsuk-button">Change allowances</a>
+    </form>
+
+    <p><a href="/internal/v1/student-details">Cancel</a></p>
+
+  </div>
+</div>
+{% endblock %}

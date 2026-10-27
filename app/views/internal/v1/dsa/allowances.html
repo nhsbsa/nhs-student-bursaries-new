@@ -1,0 +1,88 @@
+{% extends 'layout-internal.html' %}
+
+{% set pageName = "DSA allowances" %}
+
+{% set rows = data['allowances'] or [] %}
+
+{% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/summary">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <span class="nhsuk-caption-l">John Mark · BRN0000147</span>
+    <h1 class="nhsuk-heading-l">DSA allowances</h1>
+    <p>You have added {{ rows | length }} allowance{{ 's' if rows | length != 1 }} for this student.</p>
+
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Allowances added</caption>
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col">Allowance</th>
+          <th class="nhsuk-table__header" scope="col">Details</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Approved amount</th>
+          <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Hours or journeys</th>
+          <!--
+          <th class="nhsuk-table__header" scope="col"><span class="nhsuk-u-visually-hidden">Actions</span></th>
+          -->
+          <th class="nhsuk-table__header" scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        {% for item in rows %}
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">{{ item.label }}</td>
+          <td class="nhsuk-table__cell">{{ item.details or "None" }}</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric">
+            {% if item.hours %}{{ item.hours }} hours{% elif item.journeys %}{{ item.journeys }} journeys{% else %}Not applicable{% endif %}
+          </td>
+          <td class="nhsuk-table__cell" style="white-space: nowrap;">
+            <a class="nhsuk-u-margin-right-3" href="/internal/v1/dsa/change-allowance/{{ loop.index0 }}">Change<span class="nhsuk-u-visually-hidden"> {{ item.label }}</span></a>
+            <a href="/internal/v1/dsa/remove-allowance/{{ loop.index0 }}">Remove<span class="nhsuk-u-visually-hidden"> {{ item.label }}</span></a>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell"><strong>Total</strong></td>
+          <td class="nhsuk-table__cell"></td>
+          <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>{{ total }}</strong></td>
+          <td class="nhsuk-table__cell"></td>
+          <td class="nhsuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+            <h2 class="nhsuk-fieldset__heading">Do you want to add another allowance?</h2>
+          </legend>
+          <div class="nhsuk-radios nhsuk-radios--inline">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="add-another-yes" name="add-another" type="radio" value="yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="add-another-yes">Yes</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="add-another-no" name="add-another" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="add-another-no">No</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="nhsuk-button" type="submit">Continue</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
