@@ -1,4 +1,4 @@
-" style="margin-bottom: 0;"{% extends "layout-internal.html" %}
+{% extends "layout-internal.html" %}
 
 {% set pageName = "Page templates" %}
 
@@ -7,67 +7,50 @@
 
 {% block content %}
 <div class="nhsuk-grid-row">
-<div class="nhsuk-grid-column-two-thirds">
-    <div>
-        <h1 class="nhsuk-heading-xl">
-		<span class="nhsuk-caption-l" id="studentRef">
-			<span>John Mark BRN0000089</span>
-			<span class="nhsuk-u-visually-hidden"> - </span>
-		</span>
-            Student details
-        </h1>
-    </div>
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-6">
+      <span class="nhsuk-caption-l" id="studentRef">BRN0000089<span class="nhsuk-u-visually-hidden"> - </span></span>
+      Student details
+    </h1>
+  </div>
+  <div class="nhsuk-grid-column-one-third" style="text-align: right;">
+    {% if data['locked'] == 'true' %}
+    <a href="student-details?locked=false" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-5" data-module="nhsuk-button">Unlock record</a>
+    {% else %}
+    <a href="student-details?locked=true" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-5" data-module="nhsuk-button">Lock record</a>
+    {% endif %}
+  </div>
 </div>
-<div class="nhsuk-grid-column-one-third">
-  {% if data['locked'] == 'true' %}
-  <a href="student-details?locked=false" class="nhsuk-button nhsuk-button--secondary" style="float:right;">Unlock record</a>
-  {% else %}
-  <a href="student-details?locked=true" class="nhsuk-button nhsuk-button--secondary" style="float:right;">Lock record</a>
-  {% endif %}
-      </div>
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-one-third">
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Name</h2>
+    <p id="studentName" class="nhsuk-u-margin-bottom-4">John Mark</p>
+
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Date of birth</h2>
+    <p id="studentDOB" class="nhsuk-u-margin-bottom-4">09/04/1997</p>
+
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">SFE number</h2>
+    <p id="sfeReferenceNo" class="nhsuk-u-margin-bottom-4">111111</p>
   </div>
 
-  <div class="nhsuk-grid-row">
-
-
-      <div class="nhsuk-grid-column-one-third">
-          <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">Name</h2>
-          <p id="studentName" class="wordbreak" style="margin-bottom: 0;">Joe test</p>
-
-          <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">Date of birth</h2>
-          <p id="studentDOB" class="mb-0">09/04/1997</p>
-
-          <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">SFE Number</h2>
-          <p id="sfeReferenceNo" class="wordbreak">111111</p>
-      </div>
-
-      <div class="nhsuk-grid-column-one-third">
-          <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">Address</h2>
-          <address>
-              <span id="studentAddress1" class="wordbreak">64</span><br>
-              <span></span><br/>
-
-                  <span class="wordbreak">Zoo Lane</span>
-                  <br/>
-
-
-              <span>Balamory</span><br/>
-              <span id="studentPostcode" class="wordbreak">NE1 1AA</span>
-          </address>
-      </div>
-
-      <div class="nhsuk-grid-column-one-third">
-
-              <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">Phone</h2>
-              <p id="studentPhone" class="mb-0">07700000000</p>
-
-
-
-
-          <h2 class="nhsuk-heading-xs" style="margin-bottom: 0;">Email</h2>
-          <p id="studentEmail" class="wordbreak">testenvironment277+333@gmail.com</p>
-      </div>
+  <div class="nhsuk-grid-column-one-third">
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Address</h2>
+    <p id="studentAddress" class="nhsuk-u-margin-bottom-4">
+      64 Zoo Lane<br>
+      Balamory<br>
+      <span id="studentPostcode">NE1 1AA</span>
+    </p>
   </div>
+
+  <div class="nhsuk-grid-column-one-third">
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Phone</h2>
+    <p id="studentPhone" class="nhsuk-u-margin-bottom-4">07700 000000</p>
+
+    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Email</h2>
+    <p id="studentEmail" class="nhsuk-u-margin-bottom-4" style="overflow-wrap: anywhere;">testenvironment277+333@gmail.com</p>
+  </div>
+</div>
 
   <div class="nhsuk-grid-row">
 
@@ -82,20 +65,17 @@
               <div class="nhsuk-details__text">
                   <h2 class="nhsuk-heading-m">Bank details</h2>
 
-                  <h3 class="nhsuk-heading-xs" style="margin-bottom: 0;">Account number</h3>
+                  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Account number</h3>
                   <p id="accountNumber">00000003</p>
 
-                  <h3 class="nhsuk-heading-xs" style="margin-bottom: 0;">Sort code</h3>
+                  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Sort code</h3>
                   <p id="sortcode">111545</p>
 
-                  <h3 class="nhsuk-heading-xs" style="margin-bottom: 0;">Account holder</h3>
-                  <p id="accountholder">Joe Bloggs</p>
+                  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Account holder</h3>
+                  <p id="accountholder">John Mark</p>
 
-                  <h3 class="nhsuk-heading-xs" style="margin-bottom: 0;">Building society number</h3>
-                  <p>
-                      <span id="buildingSocietyNo"></span>
-                      <span>N/A</span>
-                  </p>
+                  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">Building society number</h3>
+                  <p id="buildingSocietyNo" class="nhsuk-u-margin-bottom-0">Not applicable</p>
               </div>
           </details>
       </div>
@@ -111,6 +91,7 @@
                   <li class="nhsuk-tabs__list-item"><a href="#tab-2" class="nhsuk-tabs__tab">Notes</a></li>
                   <li class="nhsuk-tabs__list-item"><a href="#tab-3" class="nhsuk-tabs__tab">Course details</a></li>
                   <li class="nhsuk-tabs__list-item"><a href="#tab-4" class="nhsuk-tabs__tab">Payments</a></li>
+                  <li class="nhsuk-tabs__list-item"><a href="#tab-dsa" class="nhsuk-tabs__tab">DSA allowances</a></li>
                   <li class="nhsuk-tabs__list-item"><a href="#tab-5" class="nhsuk-tabs__tab">Actions</a></li>
               </ul>
           </div>
@@ -418,6 +399,75 @@
 
                       </div>
                   </div>
+              </div>
+
+              <div class="nhsuk-tabs__panel" id="tab-dsa">
+                {% set dsaRows = data['allowances'] or [] %}
+                {% set dsaTotal = dsaRows | sum('amount') %}
+
+                <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-2">DSA allowances</h2>
+
+                {% if dsaRows | length %}
+
+                  {% if data['dsa-allowances-saved'] == 'yes' %}
+                    <p class="nhsuk-u-margin-bottom-5">Approved by Michael Lee</p>
+                  {% else %}
+                    <p class="nhsuk-u-margin-bottom-5">
+                      <strong class="nhsuk-tag nhsuk-tag--white">In progress</strong>
+                      <span class="nhsuk-u-margin-left-2">Allowances have not been saved yet.</span>
+                    </p>
+                  {% endif %}
+
+                  <table class="nhsuk-table">
+                    <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">DSA allowances</caption>
+                    <thead class="nhsuk-table__head">
+                      <tr class="nhsuk-table__row">
+                        <th class="nhsuk-table__header" scope="col">Allowance</th>
+                        <th class="nhsuk-table__header" scope="col">Details</th>
+                        <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Approved</th>
+                        <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Used</th>
+                        <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Remaining</th>
+                        <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">Hours or journeys left</th>
+                      </tr>
+                    </thead>
+                    <tbody class="nhsuk-table__body">
+                      {% for item in dsaRows %}
+                      <tr class="nhsuk-table__row">
+                        <td class="nhsuk-table__cell">{{ item.label }}</td>
+                        <td class="nhsuk-table__cell">{{ item.details or "None" }}</td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric">£0.00</td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric">{{ item.amountDisplay }}</td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric">
+                          {% if item.hours %}{{ item.hours }} of {{ item.hours }} hours{% elif item.journeys %}{{ item.journeys }} of {{ item.journeys }} journeys{% else %}Not applicable{% endif %}
+                        </td>
+                      </tr>
+                      {% endfor %}
+                      <tr class="nhsuk-table__row">
+                        <th class="nhsuk-table__header" scope="row">Total</th>
+                        <td class="nhsuk-table__cell"></td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>£{{ dsaTotal.toLocaleString('en-GB', {"minimumFractionDigits": 2, "maximumFractionDigits": 2}) }}</strong></td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>£0.00</strong></td>
+                        <td class="nhsuk-table__cell nhsuk-table__cell--numeric"><strong>£{{ dsaTotal.toLocaleString('en-GB', {"minimumFractionDigits": 2, "maximumFractionDigits": 2}) }}</strong></td>
+                        <td class="nhsuk-table__cell"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h3 class="nhsuk-heading-s nhsuk-u-margin-top-6">Payments made</h3>
+                  <p class="nhsuk-hint">No payments recorded yet.</p>
+
+                  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px;">
+                    <a href="#" class="nhsuk-button nhsuk-u-margin-bottom-0" data-module="nhsuk-button">Record a payment</a>
+                    <a href="/internal/v1/dsa/allowances">Change allowances</a>
+                  </div>
+
+                {% else %}
+
+                  <p>No DSA allowances have been set up for this student.</p>
+                  <p class="nhsuk-hint">Allowances are added when a DSA application is approved.</p>
+
+                {% endif %}
               </div>
 
               <div class="nhsuk-tabs__panel" id="tab-5">
