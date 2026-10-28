@@ -197,8 +197,7 @@
 
                       <div class="nhsuk-grid-column-three-quarters">
                           <label for="filterText" class="nhsuk-label">Filter notes</label>
-                          <input class="nhsuk-input nhsuk-u-width-full" type="text" name="search-box" value=""
-                                 id="filterText" onkeyup="filterTable('filterText', 'notesTable')">
+                          <input class="nhsuk-input nhsuk-u-width-full" id="filterText" name="search-box" type="text" spellcheck="false" autocomplete="off" onkeyup="filterTable('filterText', 'notesTable')">
                           <span class="inline-search-button">
 								<span class="nhsuk-u-visually-hidden">Search</span>
 							</span>
@@ -211,37 +210,23 @@
                               </tr>
                               </thead>
                               <tbody>
-                                {% if data['dsa'] == "needs" and data['needs'] == "email" %}
+                                {% if data['needs'] == "email" and data['dsa'] in ["needs", "evidence", "reject"] %}
                                 <tr role="row">
                                   <td>
-                                      <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance further evidence request sent on 24/09/2026 09:27:33</h3>
-                                      <p>hello this is a test of approving for needs assessment</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
+                                    <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">
+                                      {% if data['dsa'] == "needs" %}
+                                        Email notification of Disabled Students' Allowance approved for needs assessment sent on 28/10/2026 16:47:00
+                                      {% elif data['dsa'] == "evidence" %}
+                                        Email notification of Disabled Students' Allowance further evidence request sent on 28/10/2026 16:47:00
+                                      {% else %}
+                                        Email notification of Disabled Students' Allowance rejected sent on 28/10/2026 16:47:00
+                                      {% endif %}
+                                    </h3>
+                                    <p>{{ data['mailContent'] or "No message entered." }}</p>
+                                    <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong></p>
                                   </td>
                                 </tr>
                                 {% endif %}
-                                {% if data['dsa'] == "evidence" and data['needs'] == "email" %}
-                                <tr role="row">
-                                    <td>
-                                      <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance further evidence request sent on 24/09/2026 14:26:15</h3>
-                                      <p>Exmaple message of what they need to send.</p>
-                                      <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                      </p>
-
-                                    </td>
-                                </tr>
-                                {% endif %}
-                                {% if data['dsa'] == "reject" and data['needs'] == "email" %}
-                                <tr role="row">
-                                  <td>
-                                    <h3 class="nhsuk-heading-xs mt-0 mb-0">Email notification of Disabled Students' Allowance rejected sent on 24/09/2026 14:31:57</h3>
-                                    <p>hello this is an example message to say your DSA application has been rejected</p>
-                                    <p class="nhsuk-hint">Last modified by <strong>Michael Lee</strong>
-                                    </p>
-                                  </td>
-                                  </tr>
-                                  {% endif %}
                               </tbody>
                           </table>
                       </div>

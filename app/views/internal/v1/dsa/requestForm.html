@@ -1,69 +1,68 @@
-" style="margin-bottom: 0;"{% extends "layout-internal.html" %}
+{% extends "layout-internal.html" %}
 
-{% set pageName = "Page templates" %}
+{% set pageName = "Email the student" %}
 
 {% block beforeContent %}
+  <a class="nhsuk-back-link" href="/internal/v1/dsa/summary" id="back-link">Back</a>
 {% endblock %}
 
 {% block content %}
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
-						<!-- Back link -->
-            <a class="nhsuk-back-link nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-0"
-   href="/internal/v0/dsa/summary" id="back-link">
-  Go back
-</a>
 
-						<h1 class="nhsuk-heading-l">
-							<span class="nhsuk-caption-l">
-								Application Assessment
-								<span class="nhsuk-u-visually-hidden"> - </span>
-							</span>
-							Request further evidence
-						</h1>
+    <h1 class="nhsuk-heading-l">
+      <span class="nhsuk-caption-l">
+        Application assessment
+        <span class="nhsuk-u-visually-hidden"> - </span>
+      </span>
+      {% if data['dsa'] == 'needs' %}
+        Approved for needs assessment
+      {% elif data['dsa'] == 'reject' %}
+        Reject application
+      {% else %}
+        Request further evidence
+      {% endif %}
+    </h1>
 
-						<form action="/internal/v0/dsa/requestForm" method="POST">
+    <form action="/internal/v1/dsa/requestForm" method="POST" novalidate>
 
+      <p>Dear student,</p>
 
-							<p class="nhsuk-caption">Complete text box to send email to student</p>
+      <div class="nhsuk-form-group nhsuk-character-count" data-module="nhsuk-character-count" data-maxlength="2000">
+        <label class="nhsuk-label" for="mailContent">Message to the student</label>
+        <div class="nhsuk-hint" id="mailContent-hint">
+          {% if data['dsa'] == 'needs' %}
+            Tell the student they've been approved for a needs assessment and how to book it.
+          {% elif data['dsa'] == 'reject' %}
+            Explain why their application has been rejected.
+          {% else %}
+            Explain what evidence they need to send.
+          {% endif %}
+          This appears after "Dear student" in the email.
+        </div>
+        <textarea class="nhsuk-textarea nhsuk-js-character-count" id="mailContent" name="mailContent" rows="8" aria-describedby="mailContent-hint mailContent-info"></textarea>
+        <div class="nhsuk-hint nhsuk-character-count__message" id="mailContent-info">You can enter up to 2000 characters</div>
+      </div>
 
-							<div class="nhsuk-form-group" id="commentsGroup">
-								<label for="mailContent" class="nhsuk-label" id="mailContent-label">Dear student</label>
+      <p>If you have any general queries about the NHS Student Bursary, please use our online enquiry system <a href="https://faq.nhsbsa.nhs.uk/knowledgebase/category/?articlecategory=NHS%20Bursary&amp;id=CAT-05069&amp;parentid=" target="_blank" rel="noopener noreferrer">'Ask Us' (opens in new tab)</a> which is available 24 hours a day, 7 days a week. If you cannot find the answer you require, you can contact us using the details below:</p>
 
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Telephone: 0300 330 1345</li>
+        <li>Text relay service: 18001 0300 330 1345</li>
+        <li>Twitter: <a href="https://www.twitter.com/NHSBSA_Students" target="_blank" rel="noopener noreferrer">@NHSBSA_Students (opens in new tab)</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/NHSstudentbursaries" target="_blank" rel="noopener noreferrer">NHSstudentbursaries (opens in new tab)</a></li>
+      </ul>
 
+      <p class="nhsuk-u-margin-top-5">Yours sincerely,</p>
+      <p class="nhsuk-u-margin-bottom-1">Student Services</p>
+      <p>NHS Business Services Authority</p>
 
-								<textarea class="nhsuk-textarea" rows="8" id="mailContent" data-maxlength="2000" name="mailContent"></textarea>
-								<div id="charactersRemaining">Total 2000 characters</div>
-							</div>
+      <button class="nhsuk-button" type="submit" data-module="nhsuk-button">Send email</button>
 
-							<p>If you have any general queries about the NHS Student Bursary, please use our online enquiry system <a href="https://faq.nhsbsa.nhs.uk/knowledgebase/category/?articlecategory=NHS%20Bursary&amp;id=CAT-05069&amp;parentid=" target="_blank" rel="noopener">'Ask Us'<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a> which is available 24 hours a day, 7 days a week. If you cannot find the answer you require, you can contact us using the details below:</p>
+      <p><a href="/internal/v1/dsa/summary">Cancel and go back to the application</a></p>
 
-							<ul class="nhsuk-list nhsuk-list--bullet">
-								<li>Telephone: 0300 330 1345</li>
-								<li>Text relay service: 18001 0300 330 1345</li>
-								<li>Twitter: <a href="https://www.twitter.com/NHSBSA_Students" target="_blank" rel="noopener">@NHSBSA_Students<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a></li>
-								<li>Facebook: <a href="https://www.facebook.com/NHSstudentbursaries" target="_blank" rel="noopener">NHSstudentbursaries<span class="nhsuk-u-visually-hidden"> (opens in a new tab)</span></a></li>
-							</ul>
+    </form>
 
-							<br/>
-							<p>Yours sincerely,</p>
-							<br/>
-							<p>Student Services</p>
-							<p>NHS Business Services Authority</p>
-
-							<div class="nhsuk-form-group">
-								<p><a class="js-disabled" href="#" id="clear">Clear form data</a></p>
-							</div>
-
-							<div class="nhsuk-form-group">
-                  <button class="nhsuk-button nhsuk-u-margin-right-5" type="submit">
-                      Send
-                  </button>
-								<a href="../student-details?needs=no" class="nhsuk-button nhsuk-button--secondary">Proceed without email</a>
-							</div>
-						</form>
-					</div>
+  </div>
 </div>
-
-
 {% endblock %}

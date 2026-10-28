@@ -109,7 +109,7 @@ router.post('/dsa/summary', (req, res) => {
     return res.redirect(base + '/add-allowances');
   }
   if (decision === 'needs') {
-    return res.redirect(base + '/needs-assessment-approved');
+    return res.redirect(base + '/requestForm?dsa=needs');
   }
   if (decision === 'evidence') {
     return res.redirect(base + '/requestForm?dsa=evidence');
